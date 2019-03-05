@@ -48,7 +48,7 @@ public class FirstTest {
         );
         checkTextInElement(
                 By.id("org.wikipedia:id/search_src_text"),
-                "На главной нет строки поиска",
+                "В модальном окне нет строки поиска",
                 5,
                 "Search…"
         );
