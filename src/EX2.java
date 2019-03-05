@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
 
-public class FirstTest {
+public class EX2 {
 
     private AppiumDriver driver;
 
