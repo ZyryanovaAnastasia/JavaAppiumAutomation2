@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="acde657c-17c9-4767-80bc-dc9c48012edb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HWMainClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HWMainClassTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MyHelp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TestWithBackground.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TestWithRotation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testWithArticle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Ex6.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EX2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EX2.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +14,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Ex6.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/testWithArticle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="94" selection-end-column="10" />
+            <state relative-caret-position="285">
+              <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setUp#0;class#testSwipeArticle#0" />
@@ -37,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TestWithRotation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="43" selection-start-line="43" selection-end-line="47" selection-end-column="10" />
+            <state relative-caret-position="330">
+              <caret line="34" selection-start-line="34" selection-end-line="39" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setUp#0;class#TestWithRotation#0" />
@@ -47,14 +52,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TestWithBackground.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="59" column="10" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
+            <state relative-caret-position="320">
+              <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setUp#0;class#TestWithBackground#0" />
+                <element signature="e#1143#1144#0" expanded="true" />
+                <element signature="e#1172#1173#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MyHelp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1027">
-              <caret line="201" column="47" selection-start-line="201" selection-start-column="18" selection-end-line="201" selection-end-column="47" />
+            <state relative-caret-position="-113">
+              <caret line="82" selection-start-line="82" selection-end-line="96" selection-end-column="5" />
               <folding>
                 <element signature="method#waitForElementPresentById#0;class#Help#0" />
                 <element signature="method#waitForElementPresent#0;class#Help#0" />
@@ -79,18 +86,6 @@
                 <element signature="e#5283#5284#0" expanded="true" />
                 <element signature="method#swipeUpToFindElement#0;class#MyHelp#0" />
                 <element signature="method#swipeElementToLeft#0;class#MyHelp#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HWMainClassTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,12 +120,13 @@
         <option value="$PROJECT_DIR$/src/testSwipeArticle.java" />
         <option value="$PROJECT_DIR$/src/testWithArticle.java" />
         <option value="$PROJECT_DIR$/src/MyHelp.java" />
-        <option value="$PROJECT_DIR$/src/TestWithRotation.java" />
         <option value="$PROJECT_DIR$/src/TestWithBackground.java" />
+        <option value="$PROJECT_DIR$/src/TestWithRotation.java" />
+        <option value="$PROJECT_DIR$/src/Ex6.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="74" />
     <option name="y" value="28" />
     <option name="width" value="1914" />
@@ -165,7 +161,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551956664192" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551959079973" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/selenium-server-standalone-3.4.0.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -184,7 +180,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.Ex6">
+    <configuration name="Ex6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaAppiumAutomation" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Ex6" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FirstTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JavaAppiumAutomation" />
       <option name="PACKAGE_NAME" value="" />
@@ -194,8 +199,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.FirstTest" />
+      <item itemvalue="JUnit.Ex6" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Ex6" />
         <item itemvalue="JUnit.FirstTest" />
       </list>
     </recent_temporary>
@@ -214,35 +224,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FirstTest - 2019.03.04 at 23h 54m 06s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest - 2019.03.05 at 09h 42m 26s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest - 2019.03.05 at 09h 42m 54s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest - 2019.03.05 at 09h 43m 32s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest - 2019.03.05 at 09h 47m 16s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest - 2019.03.05 at 09h 48m 22s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest - 2019.03.05 at 09h 49m 24s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest - 2019.03.05 at 09h 49m 57s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="FirstTest - 2019.03.05 at 09h 50m 40s.xml">
       <configuration name="FirstTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="FirstTest - 2019.03.05 at 09h 50m 57s.xml">
       <configuration name="FirstTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Ex6 - 2019.03.07 at 16h 27m 21s.xml">
+      <configuration name="Ex6" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Ex6 - 2019.03.07 at 16h 27m 34s.xml">
+      <configuration name="Ex6" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Ex6 - 2019.03.07 at 16h 28m 07s.xml">
+      <configuration name="Ex6" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Ex6 - 2019.03.07 at 16h 29m 06s.xml">
+      <configuration name="Ex6" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Ex6 - 2019.03.07 at 16h 36m 43s.xml">
+      <configuration name="Ex6" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Ex6 - 2019.03.07 at 16h 37m 20s.xml">
+      <configuration name="Ex6" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Ex6 - 2019.03.07 at 16h 38m 39s.xml">
+      <configuration name="Ex6" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Ex6 - 2019.03.07 at 16h 39m 42s.xml">
+      <configuration name="Ex6" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -258,7 +268,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.32852387" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -266,7 +276,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067115" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32852387" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -317,27 +327,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EX2.java">
+    <entry file="file://$PROJECT_DIR$/src/EX3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="480">
+          <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestWithRotation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="34" selection-start-line="34" selection-end-line="39" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#TestWithRotation#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EX3.java">
+    <entry file="file://$PROJECT_DIR$/src/TestWithBackground.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="73" column="5" lean-forward="true" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+        <state relative-caret-position="320">
+          <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#TestWithBackground#0" />
+            <element signature="e#1143#1144#0" expanded="true" />
+            <element signature="e#1172#1173#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MyHelp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1027">
-          <caret line="201" column="47" selection-start-line="201" selection-start-column="18" selection-end-line="201" selection-end-column="47" />
+        <state relative-caret-position="-113">
+          <caret line="82" selection-start-line="82" selection-end-line="96" selection-end-column="5" />
           <folding>
             <element signature="method#waitForElementPresentById#0;class#Help#0" />
             <element signature="method#waitForElementPresent#0;class#Help#0" />
@@ -358,8 +382,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/testWithArticle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="94" selection-end-column="10" />
+        <state relative-caret-position="285">
+          <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#setUp#0;class#testSwipeArticle#0" />
@@ -367,24 +391,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestWithRotation.java">
+    <entry file="file://$PROJECT_DIR$/src/EX2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="43" selection-start-line="43" selection-end-line="47" selection-end-column="10" />
+        <state relative-caret-position="580">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#setUp#0;class#TestWithRotation#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestWithBackground.java">
+    <entry file="file://$PROJECT_DIR$/src/Ex6.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="59" column="10" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
+        <state relative-caret-position="210">
+          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#setUp#0;class#TestWithBackground#0" />
           </folding>
         </state>
       </provider>
