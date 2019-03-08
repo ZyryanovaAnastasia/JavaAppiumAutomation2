@@ -1,6 +1,7 @@
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Ex6 {
 
@@ -23,11 +25,11 @@ public class Ex6 {
 
         capabilities.setCapability("platformName","Android");
         capabilities.setCapability("deviceName","emulator-5554");
-        capabilities.setCapability("platformVersion","8.1.0");
+        capabilities.setCapability("platformVersion","9");
         capabilities.setCapability("automationName","Appium");
         capabilities.setCapability("appPackage","org.wikipedia");
         capabilities.setCapability("appActivity",".main.MainActivity");
-        capabilities.setCapability("app","/var/hosting/JavaAppiumAutomation/apks/org.wikipedia.apk");
+        capabilities.setCapability("app","C:/Users/Nastia/Documents/GitHub/JavaAppiumAutomation/apks/org.wikipedia.apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
     }
@@ -58,15 +60,14 @@ public class Ex6 {
         );
 
         waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container'][@text='" + article_name + "']"),
-                "Не удалось нажать на статью с заголовком 'Appium'",
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_title'][@text='" + article_name + "']"),
+                "Не удалось нажать на статью с заголовком '" + article_name + "'",
                 5
         );
 
-        waitForElementPresent(
+        assertElementPresent(
                 By.id("org.wikipedia:id/view_page_title_text"),
-                "Не найден заголовок статьи " + article_name,
-                0
+                "Не найден заголовок статьи " + article_name
         );
     }
 
@@ -90,6 +91,11 @@ public class Ex6 {
         return wait.until(
                 ExpectedConditions.presenceOfElementLocated(by)
         );
+    }
+
+    private void assertElementPresent(By by, String error_message)
+    {
+        Assert.assertTrue(error_message, driver.findElement(by).isDisplayed());
     }
 
 }
