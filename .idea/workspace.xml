@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Ex6.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state relative-caret-position="408">
+              <caret line="63" column="10" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="63" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -29,11 +29,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/testWithArticle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+            <state relative-caret-position="383">
+              <caret line="83" selection-start-line="83" selection-end-line="88" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#setUp#0;class#testSwipeArticle#0" />
               </folding>
             </state>
           </provider>
@@ -70,22 +69,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MyHelp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-113">
-              <caret line="82" selection-start-line="82" selection-end-line="96" selection-end-column="5" />
+            <state relative-caret-position="210">
+              <caret line="65" selection-start-line="65" selection-end-line="72" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/EX5.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-238">
+              <caret line="28" column="62" lean-forward="true" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
               <folding>
-                <element signature="method#waitForElementPresentById#0;class#Help#0" />
-                <element signature="method#waitForElementPresent#0;class#Help#0" />
-                <element signature="method#waitForElementNotPresent#0;class#Help#0" />
-                <element signature="method#waitForElementAndClear#0;class#Help#0" />
-                <element signature="method#waitForElementAndClick#0;class#Help#0" />
-                <element signature="method#waitForElementAndClick#1;class#MyHelp#0" />
-                <element signature="method#checkTextInElement#0;class#Help#0" />
-                <element signature="method#testCompareArticleTitle#0;class#Help#0" />
-                <element signature="method#swipeUp#0;class#Help#0" />
-                <element signature="e#5258#5259#0" expanded="true" />
-                <element signature="e#5283#5284#0" expanded="true" />
-                <element signature="method#swipeUpToFindElement#0;class#MyHelp#0" />
-                <element signature="method#swipeElementToLeft#0;class#MyHelp#0" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,6 +99,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>progra</find>
+      <find>help</find>
+      <find>hel</find>
+      <find>help.</find>
+      <find>waitForElementNotPresent</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,14 +123,15 @@
         <option value="$PROJECT_DIR$/src/TestWithBackground.java" />
         <option value="$PROJECT_DIR$/src/TestWithRotation.java" />
         <option value="$PROJECT_DIR$/src/Ex6.java" />
+        <option value="$PROJECT_DIR$/src/EX5.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="74" />
-    <option name="y" value="28" />
-    <option name="width" value="1914" />
-    <option name="height" value="1028" />
+    <option name="x" value="73" />
+    <option name="y" value="27" />
+    <option name="width" value="1915" />
+    <option name="height" value="1029" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -140,8 +141,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,10 +157,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551959079973" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552433015869" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/selenium-server-standalone-3.4.0.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -180,7 +181,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Ex6">
+  <component name="RunManager" selected="JUnit.EX5">
+    <configuration name="EX5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaAppiumAutomation" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EX5" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Ex6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JavaAppiumAutomation" />
       <option name="PACKAGE_NAME" value="" />
@@ -202,9 +212,11 @@
     <list>
       <item itemvalue="JUnit.FirstTest" />
       <item itemvalue="JUnit.Ex6" />
+      <item itemvalue="JUnit.EX5" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EX5" />
         <item itemvalue="JUnit.Ex6" />
         <item itemvalue="JUnit.FirstTest" />
       </list>
@@ -224,18 +236,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FirstTest - 2019.03.05 at 09h 50m 40s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest - 2019.03.05 at 09h 50m 57s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Ex6 - 2019.03.07 at 16h 27m 21s.xml">
-      <configuration name="Ex6" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Ex6 - 2019.03.07 at 16h 27m 34s.xml">
-      <configuration name="Ex6" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Ex6 - 2019.03.07 at 16h 28m 07s.xml">
       <configuration name="Ex6" configurationId="JUnit" />
     </history-entry>
@@ -254,12 +254,23 @@
     <history-entry file="Ex6 - 2019.03.07 at 16h 39m 42s.xml">
       <configuration name="Ex6" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Ex6 - 2019.03.08 at 20h 35m 39s.xml">
+      <configuration name="Ex6" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Ex6 - 2019.03.08 at 20h 36m 14s.xml">
+      <configuration name="Ex6" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EX5 - 2019.03.08 at 20h 36m 57s.xml">
+      <configuration name="EX5" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EX5 - 2019.03.08 at 20h 37m 50s.xml">
+      <configuration name="EX5" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="28" width="1922" height="1029" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22358592" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22684564" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -268,7 +279,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.32852387" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.32719547" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -334,13 +345,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestWithRotation.java">
+    <entry file="file://$PROJECT_DIR$/src/EX2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="34" selection-start-line="34" selection-end-line="39" selection-end-column="5" />
+        <state relative-caret-position="580">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#setUp#0;class#TestWithRotation#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/testWithArticle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="83" selection-start-line="83" selection-end-line="88" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ex6.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="63" column="10" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="63" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -358,53 +388,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestWithRotation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="34" selection-start-line="34" selection-end-line="39" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#TestWithRotation#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MyHelp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-113">
-          <caret line="82" selection-start-line="82" selection-end-line="96" selection-end-column="5" />
-          <folding>
-            <element signature="method#waitForElementPresentById#0;class#Help#0" />
-            <element signature="method#waitForElementPresent#0;class#Help#0" />
-            <element signature="method#waitForElementNotPresent#0;class#Help#0" />
-            <element signature="method#waitForElementAndClear#0;class#Help#0" />
-            <element signature="method#waitForElementAndClick#0;class#Help#0" />
-            <element signature="method#waitForElementAndClick#1;class#MyHelp#0" />
-            <element signature="method#checkTextInElement#0;class#Help#0" />
-            <element signature="method#testCompareArticleTitle#0;class#Help#0" />
-            <element signature="method#swipeUp#0;class#Help#0" />
-            <element signature="e#5258#5259#0" expanded="true" />
-            <element signature="e#5283#5284#0" expanded="true" />
-            <element signature="method#swipeUpToFindElement#0;class#MyHelp#0" />
-            <element signature="method#swipeElementToLeft#0;class#MyHelp#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testWithArticle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setUp#0;class#testSwipeArticle#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EX2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ex6.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <caret line="65" selection-start-line="65" selection-end-line="72" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EX5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-238">
+          <caret line="28" column="62" lean-forward="true" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
