@@ -2,6 +2,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -41,33 +42,12 @@ public class EX5 {
     @Test
     public void saveAndDeleteArticle()
     {
-        String search_article_text = "Java";
-        String article_name = "JavaScript";
+        String search_text = "Java";
+        String article_name_one = "JavaScript";
+        String article_name_two = "Java";
+        String name_of_list = "Learning programming";
 
-        waitForElementAndClick(
-                By.id("org.wikipedia:id/search_container"),
-                "На главной нет строки поиска",
-                5
-        );
-
-        waitForElementAndSendKeys(
-                By.id("org.wikipedia:id/search_src_text"),
-                "Не удалось ввести текст в поле поиска",
-                5,
-                search_article_text
-        );
-
-        waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_title'][@text='" + article_name + "']"),
-                "Не удалось нажать на статью с заголовком '" + article_name + "'",
-                5
-        );
-
-        waitForElementPresent(
-                By.id("org.wikipedia:id/view_page_title_text"),
-                "У статьи не найден заголовок",
-                15
-        );
+       searchAndOpenArticle(search_text, article_name_one);
 
         waitForElementAndClick(
                 By.xpath("//android.widget.ImageView[@content-desc='More options']"),
@@ -76,35 +56,35 @@ public class EX5 {
         );
 
         waitForElementAndClick(
-                By.xpath("//*[@text='Add to reading list']"),
-                "Не удалось сохранить статью в список",
+                By.xpath("//android.widget.TextView[@text='Add to reading list']"),
+                "Не удалось нажать на пункт в выпадающем меню для сохранения статью в список",
                 5
         );
 
         waitForElementAndClick(
                 By.id("org.wikipedia:id/onboarding_button"),
                 "Не удалось нажать на кнопку добавления списка",
-                5
+                10
         );
 
-        waitForElementAndClear(
-                By.id("org.wikipedia:id/text_input"),
-                "Не удалось очистить поле ввода названия списка",
-                5
-        );
+// Закомментировала из-за пробллемы автонажатия на кнопку paste и вставки строки из буфера.
 
-        String name_of_folder = "Learning programming";
+//        waitForElementAndClear(
+//                By.id("org.wikipedia:id/text_input"),
+//                "Не удалось очистить поле ввода названия списка",
+//                5
+//        );
 
-        waitForElementAndSendKeys(
-                By.id("org.wikipedia:id/text_input"),
-                "Не удалось ввести текст в поле ввода названия списка",
-                5,
-                "Learning programming"
-        );
+//        waitForElementAndSendKeys(
+//                By.id("org.wikipedia:id/text_input"),
+//                "Не удалось ввести текст в поле ввода названия списка",
+//                5,
+//                name_of_list
+//        );
 
         waitForElementAndClick(
                 By.xpath("//*[@text='OK']"),
-                "Не удалось нажать на кнопку ОК в диалогомо окне",
+                "Не удалось нажать на кнопку ОК в диалоговом окне",
                 5
         );
 
@@ -114,28 +94,94 @@ public class EX5 {
                 5
         );
 
+//Добавление второй статьи
+        searchAndOpenArticle(search_text, article_name_two);
+
         waitForElementAndClick(
-                By.xpath("//android.widget.FrameLayout[@content_desc='My lists']"),
-                "Ошибка при переходе в My lists",
+                By.xpath("//android.widget.ImageView[@content-desc='More options']"),
+                "Не удалось найти и нажать на иконку дополнительных опций",
                 5
         );
 
         waitForElementAndClick(
-                By.xpath("//*[@text='" + name_of_folder + "']"),
-                "Error message",
+                By.xpath("//android.widget.TextView[@text='Add to reading list']"),
+                "Не удалось нажать на пункт в выпадающем меню для сохранения статью в список",
+                5
+        );
+
+        waitForElementAndClick(
+                //Если бы корректно работало создание списка
+                //By.xpath("//android.widget.TextView[@text='" + name_of_list + "']"),
+                By.xpath("//android.widget.TextView[@text='My reading list']"),
+                "Не удалось нажать на кнопку добавления в список",
+                10
+        );
+
+        waitForElementAndClick(
+                By.xpath("//android.widget.ImageButton[@content-desc='Navigate up']"),
+                "Ошибка при нажатии на Х закрытия статьи",
+                5
+        );
+
+//Открытие списка My lists и удаление статьи
+        waitForElementAndClick(
+                By.xpath("//android.widget.FrameLayout[@content-desc='My lists']/android.widget.ImageView"),
+                "Ошибка при переходе в My lists с главного экрана",
+                10
+        );
+
+        waitForElementAndClick(
+                //Если бы корректно работало создание списка
+                //By.xpath("//*[@text='" + name_of_list + "']"),
+                By.xpath("//*[@text='My reading list']"),
+                "Не удалось перейти в список",
                 5
         );
 
         swipeElementToLeft(
-                By.xpath("//*[@text='Java (programming language)']"),
-                "Не удалось найти " + name_of_folder
+                By.xpath("//*[@text='" + article_name_one + "']"),
+                "В списке не удалось найти статью с заголовком " + article_name_one + " для удаления"
         );
 
         waitForElementNotPresent(
-                By.xpath("//*[@text='Java (programming language)']"),
-                "Не удалось найти статью с заголовком" + article_name,
+                By.xpath("//*[@text='" + article_name_one + "']"),
+                "В списке присутствует удаленная статья с заголовком " + article_name_one,
                 5
         );
+
+//Проверка, что вторая статья осталась и сравнение заголовков
+        //Бессмысленная проверка наличия статьи, т.к. ниже идет нажатия на статью. Если статьи нет, то нажать на нее не возможно.
+        waitForElementPresent(
+                By.xpath("//*[@text='" + article_name_two + "']"),
+                "В списке не найдена статья с заголовком " + article_name_two,
+                5
+        );
+
+        waitForElementAndClick(
+                By.xpath("//*[@text='" + article_name_two + "']"),
+                "В списке не удалось нажать на статью с заголовком " + article_name_two,
+                5
+        );
+
+        waitForElementPresent(
+                By.id("org.wikipedia:id/view_page_title_text"),
+                "У статьи не найден заголовок",
+                5
+        );
+
+        String title_article = waitForElementAndGetAttribute(
+                By.id("org.wikipedia:id/view_page_title_text"),
+                "text",
+                "Ошибка при получении атриббута text из заголовка статьи",
+                5
+        );
+
+        Assert.assertEquals(
+                "Не соответствие заголовка статьи " + title_article + " с ожидаемым заголовоком " + article_name_two,
+                title_article,
+                article_name_two
+        );
+
     }
 
     private WebElement waitForElementAndClick(By by, String error_message, long timeoutInSeconds)
@@ -144,6 +190,7 @@ public class EX5 {
         element.click();
         return element;
     }
+    
     private WebElement waitForElementAndSendKeys(By by, String error_message, long timeoutInSeconds, String value)
     {
         WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
@@ -156,6 +203,12 @@ public class EX5 {
         WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
         element.clear();
         return element;
+    }
+
+    public String waitForElementAndGetAttribute(By by, String attribute, String error_message, long timeoutInSeconds)
+    {
+        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
+        return element.getAttribute(attribute);
     }
 
     private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds)
@@ -195,5 +248,32 @@ public class EX5 {
                 .moveTo(left_x, middle_y)
                 .release().perform();
 
+    }
+    public void searchAndOpenArticle(String search_text, String article_name )
+    {
+        waitForElementAndClick(
+                By.id("org.wikipedia:id/search_container"),
+                "На главной нет строки поиска",
+                5
+        );
+
+        waitForElementAndSendKeys(
+                By.id("org.wikipedia:id/search_src_text"),
+                "Не удалось ввести текст в поле поиска",
+                5,
+                search_text
+        );
+
+        waitForElementAndClick(
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_title'][@text='" + article_name + "']"),
+                "Не удалось нажать на статью с заголовком '" + article_name + "'",
+                5
+        );
+
+        waitForElementPresent(
+                By.id("org.wikipedia:id/view_page_title_text"),
+                "У статьи не найден заголовок",
+                10
+        );
     }
 }
