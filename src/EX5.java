@@ -2,7 +2,6 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -12,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
-import java.util.List;
 
 public class EX5 {
 
@@ -67,31 +65,31 @@ public class EX5 {
 
         waitForElementPresent(
                 By.id("org.wikipedia:id/view_page_title_text"),
-                "text",
+                "У статьи не найден заголовок",
                 15
         );
 
         waitForElementAndClick(
-                By.xpath("//android.widget.ImageView[@content_desc='More options']"),
-                "Error message",
+                By.xpath("//android.widget.ImageView[@content-desc='More options']"),
+                "Не удалось найти и нажать на иконку дополнительных опций",
                 5
         );
 
         waitForElementAndClick(
                 By.xpath("//*[@text='Add to reading list']"),
-                "Error message",
+                "Не удалось сохранить статью в список",
                 5
         );
 
         waitForElementAndClick(
-                By.id("org.wikipedia:id/onboading_button"),
-                "Error message",
+                By.id("org.wikipedia:id/onboarding_button"),
+                "Не удалось нажать на кнопку добавления списка",
                 5
         );
 
         waitForElementAndClear(
                 By.id("org.wikipedia:id/text_input"),
-                "Error message",
+                "Не удалось очистить поле ввода названия списка",
                 5
         );
 
@@ -99,26 +97,26 @@ public class EX5 {
 
         waitForElementAndSendKeys(
                 By.id("org.wikipedia:id/text_input"),
-                "",
+                "Не удалось ввести текст в поле ввода названия списка",
                 5,
-                name_of_folder
+                "Learning programming"
         );
 
         waitForElementAndClick(
                 By.xpath("//*[@text='OK']"),
-                "Error message",
+                "Не удалось нажать на кнопку ОК в диалогомо окне",
                 5
         );
 
         waitForElementAndClick(
-                By.xpath("//android.widget.ImageButton[@content_desc='Navigate up']"),
-                "Error message",
+                By.xpath("//android.widget.ImageButton[@content-desc='Navigate up']"),
+                "Ошибка при нажатии на Х закрытия статьи",
                 5
         );
 
         waitForElementAndClick(
                 By.xpath("//android.widget.FrameLayout[@content_desc='My lists']"),
-                "Error message",
+                "Ошибка при переходе в My lists",
                 5
         );
 
@@ -130,12 +128,12 @@ public class EX5 {
 
         swipeElementToLeft(
                 By.xpath("//*[@text='Java (programming language)']"),
-                "Error_message"
+                "Не удалось найти " + name_of_folder
         );
 
         waitForElementNotPresent(
                 By.xpath("//*[@text='Java (programming language)']"),
-                "Error_message",
+                "Не удалось найти статью с заголовком" + article_name,
                 5
         );
     }
