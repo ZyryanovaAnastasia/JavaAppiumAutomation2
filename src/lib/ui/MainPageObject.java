@@ -42,9 +42,7 @@ public class MainPageObject {
         );
     }
 
-
-
-    //Ожидание что элементу by отсутствует на странице
+    //Ожидание, что элемент by отсутствует на странице
     public boolean waitForElementNotPresent(By by, String error_message, long timeoutInSeconds)
     {
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
@@ -54,19 +52,19 @@ public class MainPageObject {
         );
     }
 
-    //Ожидание элемента и очистка поля
-    public WebElement waitForElementAndClear(By by, String error_message, long timeoutInSeconds)
-    {
-        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
-        element.clear();
-        return element;
-    }
-
     //Ожидание и нажатие на элемент
     public WebElement waitForElementAndClick(By by, String error_message, long timeoutInSeconds)
     {
         WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
         element.click();
+        return element;
+    }
+
+    //Ожидание элемента и очистка поля
+    public WebElement waitForElementAndClear(By by, String error_message, long timeoutInSeconds)
+    {
+        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
+        element.clear();
         return element;
     }
 
@@ -78,28 +76,12 @@ public class MainPageObject {
         return element;
     }
 
-    //Проверка текта в элементе
+    //Проверка наличия текта в элементе
     public void checkTextInElement(By by, String error_message, long timeoutInSeconds, String text)
     {
         WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
         String result = element.getText();
         Assert.assertEquals("В элементе нет текста " + text + "\n", result, text);
-    }
-
-    //Сравание заголовка статьи
-    public void testCompareArticleTitle()
-    {
-        WebElement title_element = waitForElementPresent(
-                By.id("org.wikipedia:id/view_page_title_text"),
-                "text",
-                15
-        );
-        String article_title = title_element.getAttribute("text");
-        Assert.assertEquals(
-                "error",
-                "text compare",
-                article_title
-        );
     }
 
     //swipe статьи
@@ -133,7 +115,11 @@ public class MainPageObject {
         int already_swiped = 0;
         while (driver.findElements(by).size() == 0){
             if (already_swiped > max_swipes){
-                waitForElementPresent(by, "Cannot find element by swiping up. \n" + error_message, 0);
+                waitForElementPresent(
+                        by,
+                        "Cannot find element by swiping up. \n" + error_message,
+                        0
+                );
                 return;
             }
 
@@ -181,6 +167,7 @@ public class MainPageObject {
 
     }
 
+    //Получение опредленного атрибута элемента
     public String waitForElementAndGetAttribute(By by, String attribute, String error_message, long timeoutInSeconds)
     {
         WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
