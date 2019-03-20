@@ -10,7 +10,7 @@ public class SearchTests extends CoreTestCase {
     @Test
     public void testSearch()
     {
-        String search_line = "Java";
+        String search_line = "Appium";
         String expected_title = "Appium";
 
         SearchPageObject SearchPageObject = new SearchPageObject(driver);
@@ -51,7 +51,7 @@ public class SearchTests extends CoreTestCase {
     @Test
     public void testAmountOfEmptySearch()
     {
-        String search_line = "1215sd";
+        String search_line = "123456789qaz";
 
         SearchPageObject SearchPageObject = new SearchPageObject(driver);
         SearchPageObject.intSearchInput();

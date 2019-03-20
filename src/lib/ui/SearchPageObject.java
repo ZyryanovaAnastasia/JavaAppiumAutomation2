@@ -7,9 +7,9 @@ public class SearchPageObject extends MainPageObject {
 
     private static final String
         SEARCH_INIT_ELEMENT = "//*[contains(@text, 'Search Wikipedia')]",
-        SEARCH_INPUT = "//*[contains(@text, 'Search...')]",
+        SEARCH_INPUT = "org.wikipedia:id/search_src_text",
         SEARCH_CANCEL_BTN = "org.wikipedia:id/search_close_btn",
-        SEARCH_RESULT_BY_SUBSTRING_TPL = "//*[@resource-id='org.wikipedia:id/page_list_item_container'][@text='{SUBSTRING}']",
+        SEARCH_RESULT_BY_SUBSTRING_TPL = "//*[@resource-id='org.wikipedia:id/page_list_item_title'][@text='{SUBSTRING}']",
         SEARCH_RESULT_ELEMENT = "//*[@resource-id='org.wikipedia:id/search_results_list']/*[@resource-id='org.wikipedia:id/page_list_item_container']",
         SEARCH_EMPTY_RESULT_ELEMENT = "//*[@text='No results found']";
 
@@ -54,7 +54,7 @@ public class SearchPageObject extends MainPageObject {
     //Проверка, что элемент отмены поиска Х отсутствует на странице
     public void  waitForCancelBtnToDisappear()
     {
-        this.waitForElementPresent(
+        this.waitForElementNotPresent(
                 By.id(SEARCH_CANCEL_BTN),
                 "Ожидалось, что Х отмены поиска отсутствует на странице",
                 5
@@ -75,7 +75,7 @@ public class SearchPageObject extends MainPageObject {
     public void typeSearchLine(String search_line)
     {
         this.waitForElementAndSendKeys(
-                By.xpath(SEARCH_INPUT),
+                By.id(SEARCH_INPUT),
                 search_line,
                 "Не удалось ввести текст в поле поиска",
                 5
@@ -132,9 +132,10 @@ public class SearchPageObject extends MainPageObject {
     //Проверка, что результат поиска пустой
     public void assertThereIsNoResultOfSearch()
     {
-        this.assertElementNotPresent(
-                By.xpath(SEARCH_RESULT_ELEMENT),
-                "Ожидалось, что результат поиска будет пустым"
+        this.waitForElementPresent(
+                By.xpath(SEARCH_EMPTY_RESULT_ELEMENT),
+                "Ожидалось, что результат поиска будет пустым",
+                5
         );
     }
 

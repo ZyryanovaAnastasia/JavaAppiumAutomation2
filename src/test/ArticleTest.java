@@ -12,7 +12,7 @@ public class ArticleTest extends CoreTestCase {
     public void testCompareArticleTitle()
     {
         String search_line = "Java";
-        String expected_title = "Object-oriented programming lauguage";
+        String expected_title = "Java (programming language)";
 
         SearchPageObject SearchPageObject = new SearchPageObject(driver);
         SearchPageObject.intSearchInput();

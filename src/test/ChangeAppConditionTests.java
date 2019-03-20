@@ -12,14 +12,14 @@ public class ChangeAppConditionTests extends CoreTestCase {
     public void testChangeScreenOrientationOnSearchResults()
     {
         String search_line = "Java";
-        String expected_title = "Object-oriented programming lauguage";
-
+        String expected_title = "Java (programming language)";
         SearchPageObject SearchPageObject = new SearchPageObject(driver);
+        ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
+
         SearchPageObject.intSearchInput();
         SearchPageObject.typeSearchLine(search_line);
         SearchPageObject.clickByArticleWithSubstring(expected_title);
 
-        ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
         String title_before_rotation = ArticlePageObject.getArticleTitle();
         this.rotateScreenLandscape();
         String title_after_rotation = ArticlePageObject.getArticleTitle();
@@ -46,13 +46,14 @@ public class ChangeAppConditionTests extends CoreTestCase {
     public void testCheckSearchArticleInBackgrouns()
     {
         String search_line = "Java";
-        String expected_title = "Object-oriented programming lauguage";
+        String expected_title = "Java (programming language)";
+        ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
 
         SearchPageObject SearchPageObject = new SearchPageObject(driver);
         SearchPageObject.intSearchInput();
         SearchPageObject.typeSearchLine(search_line);
-        SearchPageObject.clickByArticleWithSubstring(expected_title);
+        SearchPageObject.waitForSearchResult(expected_title);
         this.backgroundApp(2);
-        SearchPageObject.clickByArticleWithSubstring(expected_title);
+        SearchPageObject.waitForSearchResult(expected_title);
     }
 }

@@ -12,13 +12,13 @@ public class ArticlePageObject extends MainPageObject {
         TITLE = "org.wikipedia:id/view_page_title_text",
         TITLE_ARTICLE_TPL = "//*[@text='{ARTICLE_NAME}']" ,
         FOOTER_ELEMENT = "//*[@text='View page in browser']",
-        OPTIONS_BTN = "//android.widget.ImageView[@content_desc='More options']",
+        OPTIONS_BTN = "//android.widget.ImageView[@content-desc='More options']",
         OPTIONS_ADD_TO_MY_LIST_BTN = "//*[@text='Add to reading list']",
-        ADD_TO_MY_LIST_OVERLAY = "org.wikipedia:id/onboading_button",
+        ADD_TO_MY_LIST_OVERLAY = "org.wikipedia:id/onboarding_button",
         MY_NEW_LIST_NAME_INPUT = "org.wikipedia:id/text_input",
         SPECIAL_LIST_NAME_TPL = "//android.widget.TextView[@text='{SPECIAL_NAME_LIST}']",
         MY_LIST_OK_BTN = "//*[@text='OK']",
-        CLOSE_ARTICLE_BTN = "//android.widget.ImageButton[@content_desc='Navigate up']";
+        CLOSE_ARTICLE_BTN = "//android.widget.ImageButton[@content-desc='Navigate up']";
 
     /* TEMPLATES METHOOS */
     private static String getSpecialNameList(String name_of_list)
@@ -105,6 +105,13 @@ public class ArticlePageObject extends MainPageObject {
                 5
         );
 
+        this.waitForElementPresent(
+                By.className("android.widget.ListView"),
+                "Не удалось найти элемент списка опций",
+                5
+
+        );
+
         this.waitForElementAndClick(
                 By.xpath(OPTIONS_ADD_TO_MY_LIST_BTN),
                 "Не удалось нажать на пункт в выпадающем меню для сохранения статью в список",
@@ -145,6 +152,13 @@ public class ArticlePageObject extends MainPageObject {
                 By.xpath(OPTIONS_BTN),
                 "Не удалось найти и нажать на иконку дополнительных опций",
                 5
+        );
+
+        this.waitForElementPresent(
+                By.className("android.widget.ListView"),
+                "Не удалось найти элемент списка опций",
+                5
+
         );
 
         this.waitForElementAndClick(
