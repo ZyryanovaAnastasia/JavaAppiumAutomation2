@@ -14,18 +14,18 @@ public class MyListsTests extends CoreTestCase {
     public void testSaveArticleToMyListAndDelete()
     {
         String search_line = "Java";
-        String expected_title = "Object-oriented programming lauguage";
+        String article_name = "Object-oriented programming lauguage";
         String name_of_folder = "Learning programming";
 
         SearchPageObject SearchPageObject = new SearchPageObject(driver);
         SearchPageObject.intSearchInput();
         SearchPageObject.typeSearchLine(search_line);
-        SearchPageObject.clickByArticleWithSubstring(expected_title);
+        SearchPageObject.clickByArticleWithSubstring(article_name);
 
         ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
-        ArticlePageObject.waitForTitlteElement();
+        ArticlePageObject.waitForTitleElement();
         String article_title = ArticlePageObject.getArticleTitle();
-        ArticlePageObject.addArticleToMyList(name_of_folder);
+        ArticlePageObject.addArticleToNewList(name_of_folder);
         ArticlePageObject.closeArticle();
 
         NavigationUi NavigationUi = new NavigationUi(driver);

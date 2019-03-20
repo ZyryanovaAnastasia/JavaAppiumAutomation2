@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class MyListPageObject extends MainPageObject {
 
-    public static final String
+    private static final String
         FOLDER_BY_NAME_TPL = "//*[@text='{FOLDER_NAME}']",
         ARTICLE_BY_TITLE_TPL = "//*[@text='{TITLE}']";
 

@@ -42,7 +42,7 @@ public class ArticleTest extends CoreTestCase {
         SearchPageObject.clickByArticleWithSubstring(expected_title);
 
         ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
-        ArticlePageObject.waitForTitlteElement();
+        ArticlePageObject.waitForTitleElement();
         ArticlePageObject.swipeUpToFooter();
     }
 }

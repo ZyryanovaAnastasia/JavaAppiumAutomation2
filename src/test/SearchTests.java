@@ -16,7 +16,7 @@ public class SearchTests extends CoreTestCase {
         SearchPageObject SearchPageObject = new SearchPageObject(driver);
         SearchPageObject.intSearchInput();
         SearchPageObject.typeSearchLine(search_line);
-        SearchPageObject.clickByArticleWithSubstring(expected_title);
+        SearchPageObject.waitForSearchResult(expected_title);
     }
 
     //Отмена поиска

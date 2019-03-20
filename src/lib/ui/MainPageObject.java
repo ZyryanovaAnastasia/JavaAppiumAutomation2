@@ -2,7 +2,6 @@ package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
@@ -18,17 +17,6 @@ public class MainPageObject {
     public MainPageObject(AppiumDriver driver)
     {
         this.driver = driver;
-    }
-
-    //Ожидание и поиск элемента только по одному типу локаторов (в примере по id)
-    public WebElement waitForElementPresentById(String id, String error_message, long timeoutInSeconds)
-    {
-        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
-        wait.withMessage(error_message);
-        By by = By.id(id);
-        return wait.until(
-                ExpectedConditions.presenceOfElementLocated(by)
-        );
     }
 
     //Ожидание и поиск элемента
@@ -50,6 +38,13 @@ public class MainPageObject {
         return wait.until(
                 ExpectedConditions.invisibilityOfElementLocated(by)
         );
+    }
+
+    //Проверка, что элемент виден на странице
+    public boolean ElementIsDisplayed(By by)
+    {
+        WebElement element = driver.findElement(by);
+        return element.isDisplayed();
     }
 
     //Ожидание и нажатие на элемент
@@ -74,14 +69,6 @@ public class MainPageObject {
         WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
         element.sendKeys(value);
         return element;
-    }
-
-    //Проверка наличия текта в элементе
-    public void checkTextInElement(By by, String error_message, long timeoutInSeconds, String text)
-    {
-        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
-        String result = element.getText();
-        Assert.assertEquals("В элементе нет текста " + text + "\n", result, text);
     }
 
     //swipe статьи

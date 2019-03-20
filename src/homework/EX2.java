@@ -1,81 +1,27 @@
 package homework;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
+import lib.CoreTestCase;
+import lib.ui.SearchPageObject;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.net.URL;
-
-public class EX2 {
-
-    private AppiumDriver driver;
-
-    @Before
-    public void setUp() throws Exception
-    {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-
-        capabilities.setCapability("platformName","Android");
-        capabilities.setCapability("deviceName","emulator-5554");
-        capabilities.setCapability("platformVersion","8.1.0");
-        capabilities.setCapability("automationName","Appium");
-        capabilities.setCapability("appPackage","org.wikipedia");
-        capabilities.setCapability("appActivity",".main.MainActivity");
-        capabilities.setCapability("app","/var/hosting/JavaAppiumAutomation/apks/org.wikipedia.apk");
-
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-    }
-
-    @After
-    public void tearDown()
-    {
-        driver.quit();
-    }
+public class EX2 extends CoreTestCase {
 
     @Test
     public void  searchTextInInput()
     {
-        waitForElementAndClick(
-                By.id("org.wikipedia:id/search_container"),
-                "На главной нет строки поиска",
-                5
-        );
-        checkTextInElement(
-                By.id("org.wikipedia:id/search_src_text"),
-                "В модальном окне нет строки поиска",
-                5,
-                "Search…"
-        );
-    }
+        String search_line = "Java";
+        String expected_text_in_search_input = "Search…";
 
-    private WebElement waitForElementAndClick(By by, String error_message, long timeoutInSeconds)
-    {
-        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
-        element.click();
-        return element;
-    }
+        SearchPageObject SearchPageObject = new SearchPageObject(driver);
+        SearchPageObject.intSearchInput();
+        SearchPageObject.typeSearchLine(search_line);
+        String text_in_search_input =  SearchPageObject.getTextInSearchInput();
 
-    private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds)
-    {
-        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
-        wait.withMessage(error_message + "\n");
-        return wait.until(
-                ExpectedConditions.presenceOfElementLocated(by)
+        assertEquals(
+                "Ожидалось, что строке поиска присутствует текст  " + expected_text_in_search_input + "\n",
+                text_in_search_input,
+                expected_text_in_search_input
         );
-    }
 
-    private void checkTextInElement(By by, String error_message, long timeoutInSeconds, String text)
-    {
-        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
-        String result = element.getText();
-        Assert.assertEquals("В элементе нет текста " + text + "\n", result, text);
     }
 }

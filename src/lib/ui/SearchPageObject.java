@@ -29,14 +29,14 @@ public class SearchPageObject extends MainPageObject {
     //Нажатие на строку поиска на главном экране
     public void intSearchInput()
     {
-        this.waitForElementAndClick(
-                By.xpath(SEARCH_INIT_ELEMENT),
-                "Не удалось найти и кликнуть на элемент поиска на главном экране",
-                5
-        );
         this.waitForElementPresent(
                 By.xpath(SEARCH_INIT_ELEMENT),
                 "На странице нет элемента",
+                5
+        );
+        this.waitForElementAndClick(
+                By.xpath(SEARCH_INIT_ELEMENT),
+                "Не удалось найти и кликнуть на элемент поиска на главном экране",
                 5
         );
     }
@@ -75,13 +75,14 @@ public class SearchPageObject extends MainPageObject {
     public void typeSearchLine(String search_line)
     {
         this.waitForElementAndSendKeys(
-                By.xpath(SEARCH_INPUT),search_line,
+                By.xpath(SEARCH_INPUT),
+                search_line,
                 "Не удалось ввести текст в поле поиска",
                 5
         );
     }
 
-    //Проверка, что в результате поиска не пустой
+    //Ожидание результата поиска
     public void waitForSearchResult(String substring)
     {
         String search_result_xpath = getResultSearchElement(substring);
@@ -134,6 +135,22 @@ public class SearchPageObject extends MainPageObject {
         this.assertElementNotPresent(
                 By.xpath(SEARCH_RESULT_ELEMENT),
                 "Ожидалось, что результат поиска будет пустым"
+        );
+    }
+
+    //Получение текста из элемента
+    public String getTextInSearchInput()
+    {
+        this.waitForElementPresent(
+                By.xpath(SEARCH_INPUT),
+                "На странице нет элемента",
+                5
+        );
+        return this.waitForElementAndGetAttribute(
+                By.xpath(SEARCH_INPUT),
+                "text",
+                "Не удалось получить указанный атрибут элемента" ,
+                5
         );
     }
 }
