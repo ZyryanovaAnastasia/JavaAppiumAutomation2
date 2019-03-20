@@ -24,7 +24,7 @@ public class EX5 {
 
         capabilities.setCapability("platformName","Android");
         capabilities.setCapability("deviceName","emulator-5554");
-        capabilities.setCapability("platformVersion","9");
+        capabilities.setCapability("platformVersion","8.0");
         capabilities.setCapability("automationName","Appium");
         capabilities.setCapability("appPackage","org.wikipedia");
         capabilities.setCapability("appActivity",".main.MainActivity");
@@ -69,18 +69,19 @@ public class EX5 {
 
 // Закомментировала из-за пробллемы автонажатия на кнопку paste и вставки строки из буфера.
 
-//        waitForElementAndClear(
-//                By.id("org.wikipedia:id/text_input"),
-//                "Не удалось очистить поле ввода названия списка",
-//                5
-//        );
+        waitForElementAndClear(
+                By.id("org.wikipedia:id/text_input"),
+                "Не удалось очистить поле ввода названия списка",
+                5
+        );
 
-//        waitForElementAndSendKeys(
-//                By.id("org.wikipedia:id/text_input"),
-//                "Не удалось ввести текст в поле ввода названия списка",
-//                5,
-//                name_of_list
-//        );
+
+        waitForElementAndSendKeys(
+                By.id("org.wikipedia:id/text_input"),
+                "Не удалось ввести текст в поле ввода названия списка",
+                5,
+                name_of_list
+        );
 
         waitForElementAndClick(
                 By.xpath("//*[@text='OK']"),
@@ -111,8 +112,8 @@ public class EX5 {
 
         waitForElementAndClick(
                 //Если бы корректно работало создание списка
-                //By.xpath("//android.widget.TextView[@text='" + name_of_list + "']"),
-                By.xpath("//android.widget.TextView[@text='My reading list']"),
+                By.xpath("//android.widget.TextView[@text='" + name_of_list + "']"),
+                //By.xpath("//android.widget.TextView[@text='My reading list']"),
                 "Не удалось нажать на кнопку добавления в список",
                 10
         );
@@ -132,8 +133,8 @@ public class EX5 {
 
         waitForElementAndClick(
                 //Если бы корректно работало создание списка
-                //By.xpath("//*[@text='" + name_of_list + "']"),
-                By.xpath("//*[@text='My reading list']"),
+                By.xpath("//*[@text='" + name_of_list + "']"),
+                //By.xpath("//*[@text='My reading list']"),
                 "Не удалось перейти в список",
                 5
         );
@@ -150,7 +151,6 @@ public class EX5 {
         );
 
 //Проверка, что вторая статья осталась и сравнение заголовков
-        //Бессмысленная проверка наличия статьи, т.к. ниже идет нажатия на статью. Если статьи нет, то нажать на нее не возможно.
         waitForElementPresent(
                 By.xpath("//*[@text='" + article_name_two + "']"),
                 "В списке не найдена статья с заголовком " + article_name_two,
@@ -184,96 +184,96 @@ public class EX5 {
 
     }
 
-    private WebElement waitForElementAndClick(By by, String error_message, long timeoutInSeconds)
-    {
-        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
-        element.click();
-        return element;
-    }
-    
-    private WebElement waitForElementAndSendKeys(By by, String error_message, long timeoutInSeconds, String value)
-    {
-        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
-        element.sendKeys(value);
-        return element;
-    }
-
-    public WebElement waitForElementAndClear(By by, String error_message, long timeoutInSeconds)
-    {
-        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
-        element.clear();
-        return element;
-    }
-
-    public String waitForElementAndGetAttribute(By by, String attribute, String error_message, long timeoutInSeconds)
-    {
-        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
-        return element.getAttribute(attribute);
-    }
-
-    private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds)
-    {
-        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
-        wait.withMessage(error_message + "\n");
-        return wait.until(
-                ExpectedConditions.presenceOfElementLocated(by)
-        );
-    }
-
-    public boolean waitForElementNotPresent(By by, String error_message, long timeoutInSeconds)
-    {
-        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
-        wait.withMessage(error_message + "\n");
-        return wait.until(
-                ExpectedConditions.invisibilityOfElementLocated(by)
-        );
-    }
-
-    public void swipeElementToLeft(By by, String error_message)
-    {
-        WebElement element = waitForElementPresent(
-                by,
-                error_message,
-                10);
-        int left_x = element.getLocation().getX();
-        int right_x = left_x + element.getSize().getWidth();
-        int upper_y = element.getLocation().getY();
-        int lower_y = upper_y + element.getSize().getHeight();
-        int middle_y = (upper_y + lower_y) / 2;
-
-        TouchAction action = new TouchAction(driver);
-        action
-                .press(right_x, middle_y)
-                .waitAction(300)
-                .moveTo(left_x, middle_y)
-                .release().perform();
-
-    }
-    public void searchAndOpenArticle(String search_text, String article_name )
-    {
-        waitForElementAndClick(
-                By.id("org.wikipedia:id/search_container"),
-                "На главной нет строки поиска",
-                5
-        );
-
-        waitForElementAndSendKeys(
-                By.id("org.wikipedia:id/search_src_text"),
-                "Не удалось ввести текст в поле поиска",
-                5,
-                search_text
-        );
-
-        waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_title'][@text='" + article_name + "']"),
-                "Не удалось нажать на статью с заголовком '" + article_name + "'",
-                5
-        );
-
-        waitForElementPresent(
-                By.id("org.wikipedia:id/view_page_title_text"),
-                "У статьи не найден заголовок",
-                10
-        );
-    }
+//    private WebElement waitForElementAndClick(By by, String error_message, long timeoutInSeconds)
+//    {
+//        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
+//        element.click();
+//        return element;
+//    }
+//
+//    private WebElement waitForElementAndSendKeys(By by, String error_message, long timeoutInSeconds, String value)
+//    {
+//        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
+//        element.sendKeys(value);
+//        return element;
+//    }
+//
+//    public WebElement waitForElementAndClear(By by, String error_message, long timeoutInSeconds)
+//    {
+//        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
+//        element.clear();
+//        return element;
+//    }
+//
+//    public String waitForElementAndGetAttribute(By by, String attribute, String error_message, long timeoutInSeconds)
+//    {
+//        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
+//        return element.getAttribute(attribute);
+//    }
+//
+//    private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds)
+//    {
+//        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+//        wait.withMessage(error_message + "\n");
+//        return wait.until(
+//                ExpectedConditions.presenceOfElementLocated(by)
+//        );
+//    }
+//
+//    public boolean waitForElementNotPresent(By by, String error_message, long timeoutInSeconds)
+//    {
+//        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+//        wait.withMessage(error_message + "\n");
+//        return wait.until(
+//                ExpectedConditions.invisibilityOfElementLocated(by)
+//        );
+//    }
+//
+//    public void swipeElementToLeft(By by, String error_message)
+//    {
+//        WebElement element = waitForElementPresent(
+//                by,
+//                error_message,
+//                10);
+//        int left_x = element.getLocation().getX();
+//        int right_x = left_x + element.getSize().getWidth();
+//        int upper_y = element.getLocation().getY();
+//        int lower_y = upper_y + element.getSize().getHeight();
+//        int middle_y = (upper_y + lower_y) / 2;
+//
+//        TouchAction action = new TouchAction(driver);
+//        action
+//                .press(right_x, middle_y)
+//                .waitAction(300)
+//                .moveTo(left_x, middle_y)
+//                .release().perform();
+//
+//    }
+//    public void searchAndOpenArticle(String search_text, String article_name )
+//    {
+//        waitForElementAndClick(
+//                By.id("org.wikipedia:id/search_container"),
+//                "На главной нет строки поиска",
+//                5
+//        );
+//
+//        waitForElementAndSendKeys(
+//                By.id("org.wikipedia:id/search_src_text"),
+//                "Не удалось ввести текст в поле поиска",
+//                5,
+//                search_text
+//        );
+//
+//        waitForElementAndClick(
+//                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_title'][@text='" + article_name + "']"),
+//                "Не удалось нажать на статью с заголовком '" + article_name + "'",
+//                5
+//        );
+//
+//        waitForElementPresent(
+//                By.id("org.wikipedia:id/view_page_title_text"),
+//                "У статьи не найден заголовок",
+//                10
+//        );
+//    }
 }
