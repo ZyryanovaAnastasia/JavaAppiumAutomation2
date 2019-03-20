@@ -1,3 +1,5 @@
+package homework;
+
 public class HWMainClass {
 
     private int class_number = 20;
