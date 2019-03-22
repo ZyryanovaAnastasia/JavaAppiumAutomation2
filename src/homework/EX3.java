@@ -12,22 +12,22 @@ public class EX3 extends CoreTestCase {
     {
         String search_line = "Java";
 
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-        SearchPageObject.intSearchInput();
-        SearchPageObject.typeSearchLine(search_line);
-        SearchPageObject.waitForListSerach();
+        SearchPageObject SearchPage = new SearchPageObject(driver);
+        SearchPage.intSearchInput();
+        SearchPage.typeSearchLine(search_line);
+        SearchPage.waitForListSerach();
 
-        int amount_of_search_results = SearchPageObject.getAmountOfFoundArticles();
+        int amount_of_search_results = SearchPage.getAmountOfFoundArticles();
 
         assertTrue(
                 "В результате поиска не найдено ни одной статьи",
                 amount_of_search_results > 0
         );
 
-        SearchPageObject.waitForCancelBtnToAppear();
-        SearchPageObject.clickCanselSearch();
+        SearchPage.waitForCancelBtnToAppear();
+        SearchPage.clickCanselSearch();
 
-        int zero_of_search_results = SearchPageObject.getAmountOfFoundArticles();
+        int zero_of_search_results = SearchPage.getAmountOfFoundArticles();
 
         assertTrue(
                 "Ожидалось, что в результате поиска не будет ни одной статьи",

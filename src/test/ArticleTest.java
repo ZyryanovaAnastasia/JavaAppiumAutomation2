@@ -13,14 +13,13 @@ public class ArticleTest extends CoreTestCase {
     {
         String search_line = "Java";
         String expected_title = "Java (programming language)";
+        SearchPageObject SearchPage = new SearchPageObject(driver);
+        ArticlePageObject ArticlePage = new ArticlePageObject(driver);
 
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-        SearchPageObject.intSearchInput();
-        SearchPageObject.typeSearchLine(search_line);
-        SearchPageObject.clickByArticleWithSubstring(expected_title);
-
-        ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
-        String article_title = ArticlePageObject.getArticleTitle();
+        SearchPage.intSearchInput();
+        SearchPage.typeSearchLine(search_line);
+        SearchPage.clickByArticleWithSubstring(expected_title);
+        String article_title = ArticlePage.getArticleTitle();
 
         assertEquals(
                 "Ожидалось, что заголовок статьи будет " + expected_title,
@@ -35,14 +34,14 @@ public class ArticleTest extends CoreTestCase {
     {
         String search_line = "Appium";
         String expected_title = "Appium";
+        SearchPageObject SearchPage = new SearchPageObject(driver);
+        ArticlePageObject ArticlePage = new ArticlePageObject(driver);
 
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-        SearchPageObject.intSearchInput();
-        SearchPageObject.typeSearchLine(search_line);
-        SearchPageObject.clickByArticleWithSubstring(expected_title);
+        SearchPage.intSearchInput();
+        SearchPage.typeSearchLine(search_line);
+        SearchPage.clickByArticleWithSubstring(expected_title);
 
-        ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
-        ArticlePageObject.waitForTitleElement();
-        ArticlePageObject.swipeUpToFooter();
+        ArticlePage.waitForTitleElement();
+        ArticlePage.swipeUpToFooter();
     }
 }

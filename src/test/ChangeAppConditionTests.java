@@ -13,16 +13,16 @@ public class ChangeAppConditionTests extends CoreTestCase {
     {
         String search_line = "Java";
         String expected_title = "Java (programming language)";
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-        ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
+        SearchPageObject SearchPage = new SearchPageObject(driver);
+        ArticlePageObject ArticlePage = new ArticlePageObject(driver);
 
-        SearchPageObject.intSearchInput();
-        SearchPageObject.typeSearchLine(search_line);
-        SearchPageObject.clickByArticleWithSubstring(expected_title);
+        SearchPage.intSearchInput();
+        SearchPage.typeSearchLine(search_line);
+        SearchPage.clickByArticleWithSubstring(expected_title);
 
-        String title_before_rotation = ArticlePageObject.getArticleTitle();
+        String title_before_rotation = ArticlePage.getArticleTitle();
         this.rotateScreenLandscape();
-        String title_after_rotation = ArticlePageObject.getArticleTitle();
+        String title_after_rotation = ArticlePage.getArticleTitle();
 
         assertEquals(
                 "После поворота экрана изменился заголовок статьи",
@@ -31,7 +31,7 @@ public class ChangeAppConditionTests extends CoreTestCase {
         );
 
         this.rotateScreenPortrait();
-        String title_after_second_rotation = ArticlePageObject.getArticleTitle();
+        String title_after_second_rotation = ArticlePage.getArticleTitle();
 
         assertEquals(
                 "После поворота экрана изменился заголовок статьи",
@@ -47,13 +47,12 @@ public class ChangeAppConditionTests extends CoreTestCase {
     {
         String search_line = "Java";
         String expected_title = "Java (programming language)";
-        ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
+        SearchPageObject SearchPage = new SearchPageObject(driver);
 
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-        SearchPageObject.intSearchInput();
-        SearchPageObject.typeSearchLine(search_line);
-        SearchPageObject.waitForSearchResult(expected_title);
+        SearchPage.intSearchInput();
+        SearchPage.typeSearchLine(search_line);
+        SearchPage.waitForSearchResult(expected_title);
         this.backgroundApp(2);
-        SearchPageObject.waitForSearchResult(expected_title);
+        SearchPage.waitForSearchResult(expected_title);
     }
 }

@@ -13,21 +13,21 @@ public class SearchTests extends CoreTestCase {
         String search_line = "Appium";
         String expected_title = "Appium";
 
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-        SearchPageObject.intSearchInput();
-        SearchPageObject.typeSearchLine(search_line);
-        SearchPageObject.waitForSearchResult(expected_title);
+        SearchPageObject SearchPage = new SearchPageObject(driver);
+        SearchPage.intSearchInput();
+        SearchPage.typeSearchLine(search_line);
+        SearchPage.waitForSearchResult(expected_title);
     }
 
     //Отмена поиска
     @Test
     public void testCanselSearch()
     {
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-        SearchPageObject.intSearchInput();
-        SearchPageObject.waitForCancelBtnToAppear();
-        SearchPageObject.clickCanselSearch();
-        SearchPageObject.waitForCancelBtnToDisappear();
+        SearchPageObject SearchPage = new SearchPageObject(driver);
+        SearchPage.intSearchInput();
+        SearchPage.waitForCancelBtnToAppear();
+        SearchPage.clickCanselSearch();
+        SearchPage.waitForCancelBtnToDisappear();
     }
 
     //Проверка, что в результате поиска есть результаты
@@ -36,10 +36,10 @@ public class SearchTests extends CoreTestCase {
     {
         String search_line = "Linkin Park Diskography";
 
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-        SearchPageObject.intSearchInput();
-        SearchPageObject.typeSearchLine(search_line);
-        int amount_of_search_results = SearchPageObject.getAmountOfFoundArticles();
+        SearchPageObject SearchPage = new SearchPageObject(driver);
+        SearchPage.intSearchInput();
+        SearchPage.typeSearchLine(search_line);
+        int amount_of_search_results = SearchPage.getAmountOfFoundArticles();
 
         assertTrue(
                 "В результате поиска не найдено ни одной статьи",
@@ -53,10 +53,10 @@ public class SearchTests extends CoreTestCase {
     {
         String search_line = "123456789qaz";
 
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-        SearchPageObject.intSearchInput();
-        SearchPageObject.typeSearchLine(search_line);
-        SearchPageObject.waitForEmptyResultsLabel();
-        SearchPageObject.assertThereIsNoResultOfSearch();
+        SearchPageObject SearchPage = new SearchPageObject(driver);
+        SearchPage.intSearchInput();
+        SearchPage.typeSearchLine(search_line);
+        SearchPage.waitForEmptyResultsLabel();
+        SearchPage.assertThereIsNoResultOfSearch();
     }
 }

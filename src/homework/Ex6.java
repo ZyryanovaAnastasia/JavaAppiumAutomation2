@@ -11,12 +11,12 @@ public class Ex6 extends CoreTestCase {
     {
         String search_line = "Java";
         String article_name_one = "JavaScript";
-        ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
+        ArticlePageObject ArticlePage = new ArticlePageObject(driver);
 
-        ArticlePageObject.searchAndOpenArticle(search_line, article_name_one);
+        ArticlePage.searchAndOpenArticle(search_line, article_name_one);
 
         assertTrue(
                 "Ожидалось, что на странице виден заголовок",
-                ArticlePageObject.titleElementIsDisplayed());
+                ArticlePage.titleElementIsDisplayed());
     }
 }

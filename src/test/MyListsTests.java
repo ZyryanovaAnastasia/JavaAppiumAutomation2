@@ -16,23 +16,23 @@ public class MyListsTests extends CoreTestCase {
         String search_line = "Java";
         String article_name = "Java (programming language)";
         String name_of_folder = "Learning programming";
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-        ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
+        SearchPageObject SearchPage = new SearchPageObject(driver);
+        ArticlePageObject ArticlePage = new ArticlePageObject(driver);
         NavigationUi NavigationUi = new NavigationUi(driver);
-        MyListPageObject MyListPageObject = new MyListPageObject(driver);
+        MyListPageObject MyListPage = new MyListPageObject(driver);
 
-        SearchPageObject.intSearchInput();
-        SearchPageObject.typeSearchLine(search_line);
-        SearchPageObject.clickByArticleWithSubstring(article_name);
+        SearchPage.intSearchInput();
+        SearchPage.typeSearchLine(search_line);
+        SearchPage.clickByArticleWithSubstring(article_name);
 
-        ArticlePageObject.waitForTitleElement();
-        String article_title = ArticlePageObject.getArticleTitle();
-        ArticlePageObject.addArticleToNewList(name_of_folder);
-        ArticlePageObject.closeArticle();
+        ArticlePage.waitForTitleElement();
+        String article_title = ArticlePage.getArticleTitle();
+        ArticlePage.addArticleToNewList(name_of_folder);
+        ArticlePage.closeArticle();
 
         NavigationUi.clickMyLists();
 
-        MyListPageObject.openFolderByName(name_of_folder);
-        MyListPageObject.swipeByArticleToDelete(article_title);
+        MyListPage.openFolderByName(name_of_folder);
+        MyListPage.swipeByArticleToDelete(article_title);
     }
 }

@@ -16,26 +16,26 @@ public class EX5 extends CoreTestCase {
         String article_name_two = "Java";
         String name_of_folder = "Learning programming";
 
-        ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
+        ArticlePageObject ArticlePage = new ArticlePageObject(driver);
         NavigationUi NavigationUi = new NavigationUi(driver);
-        MyListPageObject MyListPageObject = new MyListPageObject(driver);
+        MyListPageObject MyListPage = new MyListPageObject(driver);
 
-        ArticlePageObject.searchAndOpenArticle(search_line, article_name_one);
-        ArticlePageObject.addArticleToNewList(name_of_folder);
-        ArticlePageObject.closeArticle();
+        ArticlePage.searchAndOpenArticle(search_line, article_name_one);
+        ArticlePage.addArticleToNewList(name_of_folder);
+        ArticlePage.closeArticle();
 
-        ArticlePageObject.searchAndOpenArticle(search_line, article_name_two);
-        ArticlePageObject.addArticleToSpecialList(name_of_folder);
-        ArticlePageObject.closeArticle();
+        ArticlePage.searchAndOpenArticle(search_line, article_name_two);
+        ArticlePage.addArticleToSpecialList(name_of_folder);
+        ArticlePage.closeArticle();
 
         NavigationUi.clickMyLists();
-        MyListPageObject.openFolderByName(name_of_folder);
+        MyListPage.openFolderByName(name_of_folder);
 
-        MyListPageObject.swipeByArticleToDelete(article_name_one);
-        MyListPageObject.waitForArticleToAppearByTitle(article_name_two);
+        MyListPage.swipeByArticleToDelete(article_name_one);
+        MyListPage.waitForArticleToAppearByTitle(article_name_two);
 
-        ArticlePageObject.clickArticleName(article_name_two);
-        String gotten_article_title = ArticlePageObject.getArticleTitle();
+        ArticlePage.clickArticleName(article_name_two);
+        String gotten_article_title = ArticlePage.getArticleTitle();
 
         assertEquals(
                 "Ожидалось, что заголовок статьи будет " + article_name_two,

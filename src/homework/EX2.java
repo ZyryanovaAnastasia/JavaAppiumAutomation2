@@ -9,12 +9,11 @@ public class EX2 extends CoreTestCase {
     @Test
     public void  testSearchTextInInput()
     {
-        String search_line = "Java";
         String expected_text_in_search_input = "Search…";
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
+        SearchPageObject SearchPage = new SearchPageObject(driver);
 
-        SearchPageObject.intSearchInput();
-        String text_in_search_input =  SearchPageObject.getTextInSearchInput();
+        SearchPage.intSearchInput();
+        String text_in_search_input =  SearchPage.getTextInSearchInput();
 
         assertEquals(
                 "Ожидалось, что строке поиска присутствует текст  " + expected_text_in_search_input + "\n",
