@@ -9,7 +9,7 @@ import org.junit.Test;
 public class EX5 extends CoreTestCase {
 
     @Test
-    public void saveAndDeleteTwoArticle()
+    public void testSaveAndDeleteTwoArticle()
     {
         String search_line = "Java";
         String article_name_one = "JavaScript";

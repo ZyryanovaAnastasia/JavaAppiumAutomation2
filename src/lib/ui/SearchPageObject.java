@@ -104,14 +104,19 @@ public class SearchPageObject extends MainPageObject {
         );
     }
 
-    //Получение количества найденных статей
-    public int getAmountOfFoundArticles()
+    //Ожидание списка статей в поиска
+    public void waitForListSerach()
     {
         this.waitForElementPresent(
                 By.xpath(SEARCH_RESULT_ELEMENT),
                 "Ошибка при получении результата по поиску ",
                 15
         );
+    }
+
+    //Получение количества найденных статей
+    public int getAmountOfFoundArticles()
+    {
         return this.getAmountOfElements(
                 By.xpath(SEARCH_RESULT_ELEMENT)
         );
@@ -132,10 +137,9 @@ public class SearchPageObject extends MainPageObject {
     //Проверка, что результат поиска пустой
     public void assertThereIsNoResultOfSearch()
     {
-        this.waitForElementPresent(
+        this.assertElementNotPresent(
                 By.xpath(SEARCH_EMPTY_RESULT_ELEMENT),
-                "Ожидалось, что результат поиска будет пустым",
-                5
+                "Ожидалось, что результат поиска будет пустым"
         );
     }
 
@@ -143,12 +147,12 @@ public class SearchPageObject extends MainPageObject {
     public String getTextInSearchInput()
     {
         this.waitForElementPresent(
-                By.xpath(SEARCH_INPUT),
-                "На странице нет элемента",
-                5
+                By.id(SEARCH_INPUT),
+                "На странице нет элемента строки поиска",
+                10
         );
         return this.waitForElementAndGetAttribute(
-                By.xpath(SEARCH_INPUT),
+                By.id(SEARCH_INPUT),
                 "text",
                 "Не удалось получить указанный атрибут элемента" ,
                 5

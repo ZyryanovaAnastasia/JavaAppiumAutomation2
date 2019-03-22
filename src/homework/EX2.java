@@ -7,14 +7,13 @@ import org.junit.Test;
 public class EX2 extends CoreTestCase {
 
     @Test
-    public void  searchTextInInput()
+    public void  testSearchTextInInput()
     {
         String search_line = "Java";
         String expected_text_in_search_input = "Search…";
-
         SearchPageObject SearchPageObject = new SearchPageObject(driver);
+
         SearchPageObject.intSearchInput();
-        SearchPageObject.typeSearchLine(search_line);
         String text_in_search_input =  SearchPageObject.getTextInSearchInput();
 
         assertEquals(

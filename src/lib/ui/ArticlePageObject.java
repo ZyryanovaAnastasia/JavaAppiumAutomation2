@@ -28,7 +28,7 @@ public class ArticlePageObject extends MainPageObject {
 
     private static String getArticleName(String article_name)
     {
-        return TITLE_ARTICLE_TPL.replace("{SPECIAL_NAME_LIST}", article_name);
+        return TITLE_ARTICLE_TPL.replace("{ARTICLE_NAME}", article_name);
     }
     /* TEMPLATES METHOOS */
 
@@ -55,8 +55,8 @@ public class ArticlePageObject extends MainPageObject {
     public void clickArticleName(String article_name) {
         String article_name_xpath = getArticleName(article_name);
         this.waitForElementAndClick(
-                By.id(article_name_xpath),
-                "Не удалось найти и нажать на заголовок статьи" + article_name,
+                By.xpath(article_name_xpath),
+                "Не удалось найти и нажать на заголовок статьи" + article_name_xpath,
                 15);
     }
 
@@ -76,7 +76,7 @@ public class ArticlePageObject extends MainPageObject {
         String list_name_xpath = getSpecialNameList(name_of_list);
         waitForElementAndClick(
                 By.xpath(list_name_xpath),
-                "Не удалось нажать на список c названием" + name_of_list,
+                "Не удалось нажать на список c названием " + name_of_list,
                 5
         );
     };
@@ -168,12 +168,6 @@ public class ArticlePageObject extends MainPageObject {
         );
 
         this.choiceListAddByName(name_of_list);
-
-        this.waitForElementAndClick(
-                By.xpath(MY_LIST_OK_BTN),
-                "Не удалось нажать на кнопку ОК в диалоговом окне",
-                5
-        );
     }
 
     //Закрытие статьи с помощью X
