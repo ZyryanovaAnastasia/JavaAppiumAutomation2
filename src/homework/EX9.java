@@ -1,7 +1,6 @@
 package homework;
 
 import lib.CoreTestCase;
-import lib.ui.ArticlePageObject;
 import lib.ui.SearchPageObject;
 import org.junit.Test;
 
