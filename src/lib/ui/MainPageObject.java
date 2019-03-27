@@ -143,6 +143,13 @@ public class MainPageObject {
         List elements = driver.findElements(by);
         return ((List) elements).size();
     }
+
+    public List getAllElements(By by)
+    {
+        List elements = driver.findElements(by);
+        return elements;
+    }
+
     //Ожидание, что элемента нет на странице и вывод ошибки
     public void assertElementNotPresent(By by, String error_message)
     {

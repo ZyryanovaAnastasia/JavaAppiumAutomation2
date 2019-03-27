@@ -1,7 +1,11 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
+import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class SearchPageObject extends MainPageObject {
 
@@ -13,6 +17,7 @@ public class SearchPageObject extends MainPageObject {
                     "[@text='{TITLE}']",
             SEARCH_RESULT_BY_TITLE_AND_DESCRIPTION_TPL = "//*[@text='{TITLE}']/ancestor::" +
                     "android.widget.LinearLayout/android.widget.TextView[@text='{DESCRIPTION}']",
+            SEARCH_RESULT_ALL_TITLE_ELM = "//*[@resource-id='org.wikipedia:id/page_list_item_title']",
             SEARCH_RESULT_ELEMENT = "//*[@resource-id='org.wikipedia:id/search_results_list']" +
                     "/*[@resource-id='org.wikipedia:id/page_list_item_container']",
             SEARCH_EMPTY_RESULT_ELEMENT = "//*[@text='No results found']";
@@ -133,6 +138,19 @@ public class SearchPageObject extends MainPageObject {
                 "Ошибка при получении результата по поиску ",
                 15
         );
+    }
+
+    public void checkAllTitleArticle (String search_title)
+    {
+        List<WebElement> elements = getAllElements(By.xpath(SEARCH_RESULT_ALL_TITLE_ELM));
+
+        for(WebElement element: elements)
+        {
+            Assert.assertTrue(
+                    "Ожидалось, что в каждом заголовке статьи присутствует " + search_title,
+                    element.getText().contains(search_title)
+            );
+        };
     }
 
     //Получение количества найденных статей
