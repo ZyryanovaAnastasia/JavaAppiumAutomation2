@@ -6,12 +6,14 @@ import org.openqa.selenium.By;
 public class SearchPageObject extends MainPageObject {
 
     private static final String
-        SEARCH_INIT_ELEMENT = "//*[contains(@text, 'Search Wikipedia')]",
-        SEARCH_INPUT = "org.wikipedia:id/search_src_text",
-        SEARCH_CANCEL_BTN = "org.wikipedia:id/search_close_btn",
-        SEARCH_RESULT_BY_SUBSTRING_TPL = "//*[@resource-id='org.wikipedia:id/page_list_item_title'][@text='{SUBSTRING}']",
-        SEARCH_RESULT_ELEMENT = "//*[@resource-id='org.wikipedia:id/search_results_list']/*[@resource-id='org.wikipedia:id/page_list_item_container']",
-        SEARCH_EMPTY_RESULT_ELEMENT = "//*[@text='No results found']";
+            SEARCH_INIT_ELEMENT = "//*[contains(@text, 'Search Wikipedia')]",
+            SEARCH_INPUT = "org.wikipedia:id/search_src_text",
+            SEARCH_CANCEL_BTN = "org.wikipedia:id/search_close_btn",
+            SEARCH_RESULT_BY_SUBSTRING_TPL = "//*[@resource-id='org.wikipedia:id/" +
+                    "page_list_item_title'][@text='{SUBSTRING}']",
+            SEARCH_RESULT_ELEMENT = "//*[@resource-id='org.wikipedia:id/search_results_list']" +
+                    "/*[@resource-id='org.wikipedia:id/page_list_item_container']",
+            SEARCH_EMPTY_RESULT_ELEMENT = "//*[@text='No results found']";
 
     //Инициализация драйвера
     public SearchPageObject(AppiumDriver driver)
@@ -19,12 +21,12 @@ public class SearchPageObject extends MainPageObject {
         super(driver);
     }
 
-    /* TEMPLATES METHOOS */
+    /* TEMPLATES METHODS */
     private static String getResultSearchElement(String substring)
     {
         return SEARCH_RESULT_BY_SUBSTRING_TPL.replace("{SUBSTRING}",substring);
     }
-    /* TEMPLATES METHOOS */
+    /* TEMPLATES METHODS */
 
     //Нажатие на строку поиска на главном экране
     public void intSearchInput()
@@ -62,7 +64,7 @@ public class SearchPageObject extends MainPageObject {
     }
 
     //Нажатие на элемент отмены поиска Х
-    public void clickCanselSearch()
+    public void clickCancelSearch()
     {
         this.waitForElementAndClick(
                 By.id(SEARCH_CANCEL_BTN),

@@ -20,7 +20,7 @@ public class ArticlePageObject extends MainPageObject {
         MY_LIST_OK_BTN = "//*[@text='OK']",
         CLOSE_ARTICLE_BTN = "//android.widget.ImageButton[@content-desc='Navigate up']";
 
-    /* TEMPLATES METHOOS */
+    /* TEMPLATES METHODS */
     private static String getSpecialNameList(String name_of_list)
     {
         return SPECIAL_LIST_NAME_TPL.replace("{SPECIAL_NAME_LIST}", name_of_list);
@@ -30,7 +30,7 @@ public class ArticlePageObject extends MainPageObject {
     {
         return TITLE_ARTICLE_TPL.replace("{ARTICLE_NAME}", article_name);
     }
-    /* TEMPLATES METHOOS */
+    /* TEMPLATES METHODS */
 
     //Инициализация драйвера
     public ArticlePageObject(AppiumDriver driver) {

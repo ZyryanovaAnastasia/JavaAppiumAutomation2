@@ -9,7 +9,7 @@ public class MyListPageObject extends MainPageObject {
         FOLDER_BY_NAME_TPL = "//*[@text='{FOLDER_NAME}']",
         ARTICLE_BY_TITLE_TPL = "//*[@text='{TITLE}']";
 
-    /* TEMPLATES METHOOS */
+    /* TEMPLATES METHODS */
     private static String getFolderXpathByName(String name_of_folder)
     {
         return FOLDER_BY_NAME_TPL.replace("{FOLDER_NAME}", name_of_folder);
@@ -19,20 +19,20 @@ public class MyListPageObject extends MainPageObject {
     {
         return ARTICLE_BY_TITLE_TPL.replace("{TITLE}", article_name);
     }
-    /* TEMPLATES METHOOS */
+    /* TEMPLATES METHODS */
 
     public MyListPageObject(AppiumDriver driver)
     {
         super(driver);
     }
 
-    //Открытие списка с названием name_of_folser
-    public void openFolderByName(String name_of_folser)
+    //Открытие списка с названием name_of_folder
+    public void openFolderByName(String name_of_folder)
     {
-        String folder_name_xpath = getFolderXpathByName(name_of_folser);
+        String folder_name_xpath = getFolderXpathByName(name_of_folder);
         waitForElementAndClick(
                 By.xpath(folder_name_xpath),
-                "Не удалось перейти в список c названием" + name_of_folser,
+                "Не удалось перейти в список c названием" + name_of_folder,
                 5
         );
     };

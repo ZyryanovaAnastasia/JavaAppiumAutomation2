@@ -3,7 +3,6 @@ package homework;
 import lib.CoreTestCase;
 import lib.ui.SearchPageObject;
 import org.junit.Test;
-import sun.plugin2.os.windows.SECURITY_ATTRIBUTES;
 
 public class EX3 extends CoreTestCase {
 
@@ -15,7 +14,7 @@ public class EX3 extends CoreTestCase {
         SearchPageObject SearchPage = new SearchPageObject(driver);
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);
-        SearchPage.waitForListSerach();
+        SearchPage.waitForListSearch();
 
         int amount_of_search_results = SearchPage.getAmountOfFoundArticles();
 
@@ -25,7 +24,7 @@ public class EX3 extends CoreTestCase {
         );
 
         SearchPage.waitForCancelBtnToAppear();
-        SearchPage.clickCanselSearch();
+        SearchPage.clickCancelSearch();
 
         int zero_of_search_results = SearchPage.getAmountOfFoundArticles();
 

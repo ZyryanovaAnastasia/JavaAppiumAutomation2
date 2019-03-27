@@ -16,7 +16,7 @@ public class SearchTests extends CoreTestCase {
         SearchPageObject SearchPage = new SearchPageObject(driver);
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);
-        SearchPage.waitForSearchResult(expected_title);
+        SearchPage.waitForElementByTitle(expected_title);
     }
 
     //Отмена поиска
@@ -26,7 +26,7 @@ public class SearchTests extends CoreTestCase {
         SearchPageObject SearchPage = new SearchPageObject(driver);
         SearchPage.intSearchInput();
         SearchPage.waitForCancelBtnToAppear();
-        SearchPage.clickCanselSearch();
+        SearchPage.clickCancelSearch();
         SearchPage.waitForCancelBtnToDisappear();
     }
 
