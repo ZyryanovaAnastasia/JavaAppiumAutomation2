@@ -6,11 +6,13 @@ import org.openqa.selenium.By;
 public class SearchPageObject extends MainPageObject {
 
     private static final String
-            SEARCH_INIT_ELEMENT = "//*[contains(@text, 'Search Wikipedia')]",
+            SEARCH_INIT_ELEMENT = "//*[contains(@text,'Search Wikipedia')]",
             SEARCH_INPUT = "org.wikipedia:id/search_src_text",
             SEARCH_CANCEL_BTN = "org.wikipedia:id/search_close_btn",
-            SEARCH_RESULT_BY_SUBSTRING_TPL = "//*[@resource-id='org.wikipedia:id/" +
-                    "page_list_item_title'][@text='{SUBSTRING}']",
+            SEARCH_RESULT_BY_TITLE_TPL = "//*[@resource-id='org.wikipedia:id/page_list_item_description']" +
+                    "[@text='{TITLE}']",
+            SEARCH_RESULT_BY_TITLE_AND_DESCRIPTION_TPL = "//*[@text='{TITLE}']/ancestor::" +
+                    "android.widget.LinearLayout/android.widget.TextView[@text='{DESCRIPTION}']",
             SEARCH_RESULT_ELEMENT = "//*[@resource-id='org.wikipedia:id/search_results_list']" +
                     "/*[@resource-id='org.wikipedia:id/page_list_item_container']",
             SEARCH_EMPTY_RESULT_ELEMENT = "//*[@text='No results found']";
@@ -22,9 +24,16 @@ public class SearchPageObject extends MainPageObject {
     }
 
     /* TEMPLATES METHODS */
-    private static String getResultSearchElement(String substring)
+    private static String getResultSearchElementByTitle(String title)
     {
-        return SEARCH_RESULT_BY_SUBSTRING_TPL.replace("{SUBSTRING}",substring);
+        return SEARCH_RESULT_BY_TITLE_TPL.replace("{TITLE}", title);
+    }
+
+    private static String getResultSearchElementByTitleAndDescription(String title, String description)
+    {
+        String resultSearchByTitle = SEARCH_RESULT_BY_TITLE_AND_DESCRIPTION_TPL.replace("{TITLE}", title);
+        return resultSearchByTitle.replace("{DESCRIPTION}", description);
+
     }
     /* TEMPLATES METHODS */
 
@@ -85,20 +94,30 @@ public class SearchPageObject extends MainPageObject {
     }
 
     //Ожидание результата поиска
-    public void waitForSearchResult(String substring)
+    public void waitForElementByTitle(String substring)
     {
-        String search_result_xpath = getResultSearchElement(substring);
+        String search_result_xpath = getResultSearchElementByTitle(substring);
         this.waitForElementPresent(
                 By.xpath(search_result_xpath),
                 "Не удалось найти результат поиска c названием " + substring,
-                5
+                10
+        );
+    }
+
+    public void waitForElementByTitleAndDescription(String title, String description)
+    {
+        String search_result_xpath = getResultSearchElementByTitleAndDescription(title, description);
+        this.waitForElementPresent(
+                By.xpath(search_result_xpath),
+                "Не удалось найти элемент с заголовком " + title + " и описанием " + description,
+                10
         );
     }
 
     //Нажатие на элемент в результате поиска
     public void clickByArticleWithSubstring(String substring)
     {
-        String search_result_xpath = getResultSearchElement(substring);
+        String search_result_xpath = getResultSearchElementByTitle(substring);
         this.waitForElementAndClick(
                 By.xpath(search_result_xpath),
                 "Не удалось найти и нажать на строку c названием " + substring,
@@ -106,8 +125,8 @@ public class SearchPageObject extends MainPageObject {
         );
     }
 
-    //Ожидание списка статей в поиска
-    public void waitForListSerach()
+    //Ожидание списка статей в поиске
+    public void waitForListSearch()
     {
         this.waitForElementPresent(
                 By.xpath(SEARCH_RESULT_ELEMENT),
