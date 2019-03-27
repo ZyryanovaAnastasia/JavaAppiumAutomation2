@@ -141,7 +141,6 @@ public class SearchPageObject extends MainPageObject {
         return this.getAmountOfElements(
                 By.xpath(SEARCH_RESULT_ELEMENT)
         );
-
     }
 
     //Ожидание пустого результата по поиску статей
@@ -152,7 +151,6 @@ public class SearchPageObject extends MainPageObject {
                 "Ошибка при получении пустого результата по поиску ",
                 15
         );
-
     }
 
     //Проверка, что результат поиска пустой
