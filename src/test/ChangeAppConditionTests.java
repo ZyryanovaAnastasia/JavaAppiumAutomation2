@@ -43,7 +43,7 @@ public class ChangeAppConditionTests extends CoreTestCase {
 
     //Проверка, что заголовок статьи не изменяется после ухода приложение в фоновый режим
     @Test
-    public void testCheckSearchArticleInBackgrouns()
+    public void testCheckSearchArticleInBackground()
     {
         String search_line = "Java";
         String expected_title = "Java (programming language)";

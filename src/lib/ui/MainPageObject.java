@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class MainPageObject {
 
@@ -19,9 +20,25 @@ public class MainPageObject {
         this.driver = driver;
     }
 
+    //Преобразование строки в корректный локатор с типом
+    private By getLocatorByString(String locator_with_type) {
+        String[] exploded_locator = locator_with_type.split(Pattern.quote(":"), 2); //разделяет локатор на тип и локатор
+        String by_type = exploded_locator[0];
+        String locator = exploded_locator[1];
+
+        if (by_type.equals("xpath")) {
+            return By.xpath(locator);
+        } else if (by_type.equals("id")) {
+            return By.id(locator);
+        } else {
+            throw new IllegalArgumentException("Не верный тип локтаора. Локатор: " + locator_with_type);
+        }
+    }
+
     //Ожидание и поиск элемента
-    public WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds)
+    public WebElement waitForElementPresent(String locator, String error_message, long timeoutInSeconds)
     {
+        By by = this.getLocatorByString(locator);
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
         wait.withMessage(error_message + "\n");
         return wait.until(
@@ -31,8 +48,9 @@ public class MainPageObject {
     }
 
     //Ожидание, что элемент by отсутствует на странице
-    public boolean waitForElementNotPresent(By by, String error_message, long timeoutInSeconds)
+    public boolean waitForElementNotPresent(String locator, String error_message, long timeoutInSeconds)
     {
+        By by = this.getLocatorByString(locator);
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
         wait.withMessage(error_message + "\n");
         return wait.until(
@@ -41,32 +59,51 @@ public class MainPageObject {
     }
 
     //Проверка, что элемент виден на странице
-    public boolean ElementIsDisplayed(By by)
+    public boolean ElementIsDisplayed(String locator)
     {
+        By by = this.getLocatorByString(locator);
         WebElement element = driver.findElement(by);
         return element.isDisplayed();
     }
 
-    //Ожидание и нажатие на элемент
-    public WebElement waitForElementAndClick(By by, String error_message, long timeoutInSeconds)
+    //Ожидание, что элемента нет на странице и вывод ошибки
+    public void assertElementNotPresent(String locator, String error_message)
     {
-        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
+        int amount_of_elements = getAmountOfElements(locator);
+        if (amount_of_elements > 0) {
+            String default_message = "An element '" + locator + "' supposed to be not present"; // by.toString() - перевод в строковое значение
+            throw new AssertionError(default_message + " " + error_message);
+        }
+
+    }
+
+    //Получение опредленного атрибута элемента
+    public String waitForElementAndGetAttribute(String locator, String attribute, String error_message, long timeoutInSeconds)
+    {
+        WebElement element = waitForElementPresent(locator, error_message, timeoutInSeconds);
+        return element.getAttribute(attribute);
+    }
+
+    //Ожидание и нажатие на элемент
+    public WebElement waitForElementAndClick(String locator, String error_message, long timeoutInSeconds)
+    {
+        WebElement element = waitForElementPresent(locator, error_message, timeoutInSeconds);
         element.click();
         return element;
     }
 
     //Ожидание элемента и очистка поля
-    public WebElement waitForElementAndClear(By by, String error_message, long timeoutInSeconds)
+    public WebElement waitForElementAndClear(String locator, String error_message, long timeoutInSeconds)
     {
-        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
+        WebElement element = waitForElementPresent(locator, error_message, timeoutInSeconds);
         element.clear();
         return element;
     }
 
     //Ожидание и отправка текста в элемент
-    public WebElement waitForElementAndSendKeys(By by, String value, String error_message, long timeoutInSeconds)
+    public WebElement waitForElementAndSendKeys(String locator, String value, String error_message, long timeoutInSeconds)
     {
-        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
+        WebElement element = waitForElementPresent(locator, error_message, timeoutInSeconds);
         element.sendKeys(value);
         return element;
     }
@@ -97,13 +134,15 @@ public class MainPageObject {
     }
 
     //Swipe статьи до определенного элемента
-    public void swipeUpToFindElement(By by, String error_message, int max_swipes)
+    public void swipeUpToFindElement(String locator, String error_message, int max_swipes)
     {
+        By by = this.getLocatorByString(locator);
         int already_swiped = 0;
         while (driver.findElements(by).size() == 0){
+
             if (already_swiped > max_swipes){
                 waitForElementPresent(
-                        by,
+                        locator,
                         "Cannot find element by swiping up. \n" + error_message,
                         0
                 );
@@ -116,10 +155,10 @@ public class MainPageObject {
     }
 
     //Swipe элемента влево
-    public void swipeElementToLeft(By by, String error_message)
+    public void swipeElementToLeft(String locator, String error_message)
     {
         WebElement element = waitForElementPresent(
-                by,
+                locator,
                 error_message,
                 10);
         int left_x = element.getLocation().getX(); // самая левая точка элемента по оси Х
@@ -138,33 +177,17 @@ public class MainPageObject {
     }
 
     //Получение количества элементов
-    public int getAmountOfElements(By by)
+    public int getAmountOfElements(String locator)
     {
+        By by = this.getLocatorByString(locator);
         List elements = driver.findElements(by);
         return ((List) elements).size();
     }
 
-    public List getAllElements(By by)
+    public List getAllElements(String locator)
     {
+        By by = this.getLocatorByString(locator);
         List elements = driver.findElements(by);
         return elements;
-    }
-
-    //Ожидание, что элемента нет на странице и вывод ошибки
-    public void assertElementNotPresent(By by, String error_message)
-    {
-        int amount_of_elements = getAmountOfElements(by);
-        if (amount_of_elements > 0) {
-            String default_message = "An element '" + by.toString() + "' supposed to be not present"; // by.toString() - перевод в строковое значение
-            throw new AssertionError(default_message + " " + error_message);
-        }
-
-    }
-
-    //Получение опредленного атрибута элемента
-    public String waitForElementAndGetAttribute(By by, String attribute, String error_message, long timeoutInSeconds)
-    {
-        WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
-        return element.getAttribute(attribute);
     }
 }

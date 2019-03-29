@@ -1,13 +1,11 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.By;
 
 public class NavigationUi extends MainPageObject{
 
     private static final String
-        MY_LISTS_LINK = "//android.widget.FrameLayout[@content-desc='My lists']/android.widget.ImageView";
-
+        MY_LISTS_LINK = "xpath://android.widget.FrameLayout[@content-desc='My lists']/android.widget.ImageView";
 
     public NavigationUi(AppiumDriver driver)
     {
@@ -18,11 +16,9 @@ public class NavigationUi extends MainPageObject{
     public void clickMyLists()
     {
         this.waitForElementAndClick(
-                By.xpath(MY_LISTS_LINK),
+                (MY_LISTS_LINK),
                 "Ошибка при переходе в My lists с главного экрана",
                 5
         );
     }
-
-
 }
