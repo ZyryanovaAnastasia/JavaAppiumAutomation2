@@ -1,23 +1,25 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
+import lib.Platform;
+import lib.ui.factories.SearchPageObjectFactory;
 import org.openqa.selenium.WebElement;
 
-public class ArticlePageObject extends MainPageObject {
+abstract public class ArticlePageObject extends MainPageObject {
 
     MainPageObject MainPageObject = new MainPageObject(driver);
 
-    private static final String
-        TITLE = "id:org.wikipedia:id/view_page_title_text",
-        TITLE_ARTICLE_TPL = "xpath://*[@text='{ARTICLE_NAME}']" ,
-        OPTIONS_BTN = "xpath://android.widget.ImageView[@content-desc='More options']",
-        OPTIONS_ADD_TO_MY_LIST_BTN = "xpath://*[@text='Add to reading list']",
-        ADD_TO_MY_LIST_OVERLAY = "id:org.wikipedia:id/onboarding_button",
-        MY_NEW_LIST_NAME_INPUT = "id:org.wikipedia:id/text_input",
-        SPECIAL_LIST_NAME_TPL = "xpath://android.widget.TextView[@text='{SPECIAL_NAME_LIST}']",
-        MY_LIST_OK_BTN = "xpath://*[@text='OK']",
-        CLOSE_ARTICLE_BTN = "xpath://android.widget.ImageButton[@content-desc='Navigate up']",
-        FOOTER_ELEMENT = "xpath://*[@text='View page in browser']";
+    protected static String
+        TITLE,
+        TITLE_ARTICLE_TPL,
+        OPTIONS_BTN,
+        OPTIONS_ADD_TO_MY_LIST_BTN,
+        ADD_TO_MY_LIST_OVERLAY,
+        MY_NEW_LIST_NAME_INPUT,
+        SPECIAL_LIST_NAME_TPL,
+        MY_LIST_OK_BTN,
+        CLOSE_ARTICLE_BTN,
+        FOOTER_ELEMENT;
 
     /* TEMPLATES METHODS */
     private static String getSpecialNameList(String name_of_list)
@@ -61,17 +63,31 @@ public class ArticlePageObject extends MainPageObject {
                 15);
     }
 
+    public void addArticlesToMySaved()
+    {
+        this.waitForElementAndClick(
+                OPTIONS_ADD_TO_MY_LIST_BTN,
+                "Ошибка при добавлении статьи в список",
+                5
+        );
+    }
+
     //Получение атребута text из элемента заголовка статьи
     public String getArticleTitle()
     {
         WebElement title_element = waitForTitleElement();
-        return title_element.getAttribute("text");
+        if (Platform.getInstance().isAndroid()) {
+            return title_element.getAttribute("text");
+        } else {
+            return title_element.getAttribute("name");
+        }
+
     }
 
     //Поиск и открытие статьи
     public void searchAndOpenArticle(String search_line, String article_name)
     {
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
+        SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
         SearchPageObject.intSearchInput();
         SearchPageObject.typeSearchLine(search_line);
         SearchPageObject.clickByArticleWithSubstring(article_name);
@@ -165,11 +181,19 @@ public class ArticlePageObject extends MainPageObject {
     //Свайп статьи до футера
     public void swipeUpToFooter()
     {
-        this.swipeUpToFindElement(
-                (FOOTER_ELEMENT),
-                "Не удается пролистать статью до конца",
-                20
-        );
+        if (Platform.getInstance().isAndroid()) {
+            this.swipeUpToFindElement(
+                    FOOTER_ELEMENT,
+                    "Не удается пролистать статью до конца",
+                    40
+            );
+        } else {
+            this.swipeUpTitleElementAppear(
+                    FOOTER_ELEMENT,
+                    "Не удается пролистать статью до конца",
+                    40
+            );
+        }
     }
 
     //Закрытие статьи с помощью X

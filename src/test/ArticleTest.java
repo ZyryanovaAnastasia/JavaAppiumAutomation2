@@ -3,6 +3,8 @@ package test;
 import lib.CoreTestCase;
 import lib.ui.ArticlePageObject;
 import lib.ui.SearchPageObject;
+import lib.ui.factories.ArticlePageObjectFactory;
+import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
 public class ArticleTest extends CoreTestCase {
@@ -13,8 +15,8 @@ public class ArticleTest extends CoreTestCase {
     {
         String search_line = "Java";
         String expected_title = "Java (programming language)";
-        SearchPageObject SearchPage = new SearchPageObject(driver);
-        ArticlePageObject ArticlePage = new ArticlePageObject(driver);
+        SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
+        ArticlePageObject ArticlePage = ArticlePageObjectFactory.get(driver);
 
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);
@@ -32,10 +34,10 @@ public class ArticleTest extends CoreTestCase {
     @Test
     public void testSwipeArticleToFooter()
     {
-        String search_line = "Appium";
-        String expected_title = "Appium";
-        SearchPageObject SearchPage = new SearchPageObject(driver);
-        ArticlePageObject ArticlePage = new ArticlePageObject(driver);
+        String search_line = "Java";
+        String expected_title = "Object-oriented programming language  ";
+        SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
+        ArticlePageObject ArticlePage = ArticlePageObjectFactory.get(driver);
 
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);

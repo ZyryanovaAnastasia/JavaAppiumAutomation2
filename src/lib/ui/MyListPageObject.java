@@ -1,12 +1,13 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
+import lib.Platform;
 
-public class MyListPageObject extends MainPageObject {
+abstract public class MyListPageObject extends MainPageObject {
 
-    private static final String
-        FOLDER_BY_NAME_TPL = "xpath://*[@text='{FOLDER_NAME}']",
-        ARTICLE_BY_TITLE_TPL = "xpath://*[@text='{TITLE}']";
+    protected static String
+        FOLDER_BY_NAME_TPL,
+        ARTICLE_BY_TITLE_TPL;
 
     /* TEMPLATES METHODS */
     private static String getFolderXpathByName(String name_of_folder)
@@ -67,6 +68,15 @@ public class MyListPageObject extends MainPageObject {
                 (article_xpath),
                 "В списке не удалось найти статью с заголовком " + article_title + " для удаления"
         );
-        this.waitForArticleToDisappearByTitle(article_title);
+
+        if (Platform.getInstance().isIOS()) {
+            this.clickElementToTheRightUpperCorner(
+                    article_xpath,
+                    "Ошибка при сохранении статьи"
+            );
+
+        }
+            this.waitForArticleToDisappearByTitle(article_title);
+
     }
 }

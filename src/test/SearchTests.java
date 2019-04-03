@@ -2,6 +2,7 @@ package test;
 
 import lib.CoreTestCase;
 import lib.ui.SearchPageObject;
+import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
 public class SearchTests extends CoreTestCase {
@@ -13,7 +14,7 @@ public class SearchTests extends CoreTestCase {
         String search_line = "Appium";
         String expected_title = "Appium";
 
-        SearchPageObject SearchPage = new SearchPageObject(driver);
+        SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);
         SearchPage.waitForElementByTitle(expected_title);
@@ -23,7 +24,7 @@ public class SearchTests extends CoreTestCase {
     @Test
     public void testCanselSearch()
     {
-        SearchPageObject SearchPage = new SearchPageObject(driver);
+        SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
         SearchPage.intSearchInput();
         SearchPage.waitForCancelBtnToAppear();
         SearchPage.clickCancelSearch();
@@ -36,7 +37,7 @@ public class SearchTests extends CoreTestCase {
     {
         String search_line = "Linkin Park Diskography";
 
-        SearchPageObject SearchPage = new SearchPageObject(driver);
+        SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);
         int amount_of_search_results = SearchPage.getAmountOfFoundArticles();
@@ -53,7 +54,7 @@ public class SearchTests extends CoreTestCase {
     {
         String search_line = "123456789qaz";
 
-        SearchPageObject SearchPage = new SearchPageObject(driver);
+        SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);
         SearchPage.waitForEmptyResultsLabel();

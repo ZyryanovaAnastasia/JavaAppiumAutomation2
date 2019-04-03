@@ -2,11 +2,13 @@ package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import lib.Platform;
 
 import java.util.List;
 import java.util.regex.Pattern;
@@ -154,6 +156,51 @@ public class MainPageObject {
         }
     }
 
+    public boolean isElmLocatedOnTheScreen(String locator)
+    {
+        int element_location_by_y = this.waitForElementPresent(
+                locator,
+                "Не удалось найти элемент по локатору",
+                1
+        ).getLocation().getY();
+        int screen_size_by_y = driver.manage().window().getSize().getHeight();
+        return element_location_by_y < screen_size_by_y; //Возвращается true, когда элемент находится в зоне видимости на экране
+    }
+
+    public void swipeUpTitleElementAppear(String locator, String error_message, int max_swipes)
+    {
+        int already_swiped = 0;
+        while (!this.isElmLocatedOnTheScreen(locator))
+        {
+            if (already_swiped > max_swipes) {
+                Assert.assertTrue(error_message, this.isElmLocatedOnTheScreen(locator));
+            }
+
+            swipeUpQuick();
+            ++already_swiped;
+        }
+    }
+
+    public void clickElementToTheRightUpperCorner(String locator, String error_message)
+    {
+        WebElement element = this.waitForElementPresent(
+                locator + "/..", //Переход на элемент выше - в родительский
+                error_message,
+                5
+        );
+        int right_x = element.getLocation().getX();
+        int upper_y = element.getLocation().getY(); // самая верхная точка по оси Y
+        int lower_y = upper_y + element.getSize().getHeight(); // самая нижняя точка по оси Y
+        int middle_y = (upper_y + lower_y) / 2; // середина элемента по оси Y
+        int width = element.getSize().getWidth();
+
+        int point_to_click_x = (right_x + width) - 3;
+        int point_to_click_y = middle_y;
+
+        TouchAction action = new TouchAction(driver);
+        action.tap(point_to_click_x, point_to_click_y).perform();
+    }
+
     //Swipe элемента влево
     public void swipeElementToLeft(String locator, String error_message)
     {
@@ -168,11 +215,17 @@ public class MainPageObject {
         int middle_y = (upper_y + lower_y) / 2; // середина элемента по оси Y
 
         TouchAction action = new TouchAction(driver);
-        action
-                .press(right_x, middle_y)
-                .waitAction(300)
-                .moveTo(left_x, middle_y)
-                .release().perform();
+        action.press(right_x, middle_y);
+
+        if (Platform.getInstance().isAndroid()) {
+            action.waitAction(300);
+        } else {
+            int offset_x = (-1 * element.getSize().getWidth()); //Точка левее на всю шиирну элемента
+            action.moveTo(offset_x, 0);
+        }
+
+        action.moveTo(left_x, middle_y);
+        action.release().perform();
 
     }
 
