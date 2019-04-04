@@ -5,7 +5,8 @@ import io.appium.java_client.AppiumDriver;
 abstract public class NavigationUi extends MainPageObject{
 
     protected static String
-        MY_LISTS_LINK;
+        MY_LISTS_LINK,
+        TITLE_MY_LISTS;
 
     public NavigationUi(AppiumDriver driver)
     {
@@ -18,6 +19,11 @@ abstract public class NavigationUi extends MainPageObject{
         this.waitForElementAndClick(
                 (MY_LISTS_LINK),
                 "Ошибка при переходе в My lists с главного экрана",
+                5
+        );
+        this.waitForElementPresent(
+                TITLE_MY_LISTS,
+                "Не удалось найти заголовок сцены My lists",
                 5
         );
     }

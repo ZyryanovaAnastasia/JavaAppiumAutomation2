@@ -9,6 +9,7 @@ public class AndroidArticlePageObject  extends ArticlePageObject {
         TITLE = "id:org.wikipedia:id/view_page_title_text";
         TITLE_ARTICLE_TPL = "xpath://*[@text='{ARTICLE_NAME}']" ;
         OPTIONS_BTN = "xpath://android.widget.ImageView[@content-desc='More options']";
+        OPTION_LISTS = "xpath://android.widget.ListView";
         OPTIONS_ADD_TO_MY_LIST_BTN = "xpath://*[@text='Add to reading list']";
         ADD_TO_MY_LIST_OVERLAY = "id:org.wikipedia:id/onboarding_button";
         MY_NEW_LIST_NAME_INPUT = "id:org.wikipedia:id/text_input";

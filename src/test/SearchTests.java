@@ -22,7 +22,7 @@ public class SearchTests extends CoreTestCase {
 
     //Отмена поиска
     @Test
-    public void testCanselSearch()
+    public void testCancelSearch()
     {
         SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
         SearchPage.intSearchInput();
@@ -58,6 +58,6 @@ public class SearchTests extends CoreTestCase {
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);
         SearchPage.waitForEmptyResultsLabel();
-        SearchPage.assertThereIsNoResultOfSearch();
+        SearchPage.waitElementNoResultsFound();
     }
 }

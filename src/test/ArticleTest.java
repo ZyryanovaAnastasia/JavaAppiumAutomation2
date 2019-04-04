@@ -35,7 +35,7 @@ public class ArticleTest extends CoreTestCase {
     public void testSwipeArticleToFooter()
     {
         String search_line = "Java";
-        String expected_title = "Object-oriented programming language  ";
+        String expected_title = "Java (programming language)";
         SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
         ArticlePageObject ArticlePage = ArticlePageObjectFactory.get(driver);
 

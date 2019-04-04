@@ -2,6 +2,7 @@ package homework;
 
 import lib.CoreTestCase;
 import lib.ui.SearchPageObject;
+import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
 public class EX3 extends CoreTestCase {
@@ -11,7 +12,7 @@ public class EX3 extends CoreTestCase {
     {
         String search_line = "Java";
 
-        SearchPageObject SearchPage = new SearchPageObject(driver);
+        SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);
         SearchPage.waitForListSearch();
@@ -28,6 +29,7 @@ public class EX3 extends CoreTestCase {
 
         int zero_of_search_results = SearchPage.getAmountOfFoundArticles();
 
+        System.out.println(zero_of_search_results);
         assertTrue(
                 "Ожидалось, что в результате поиска не будет ни одной статьи",
                 zero_of_search_results == 0

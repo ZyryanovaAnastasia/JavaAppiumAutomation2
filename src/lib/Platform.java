@@ -51,11 +51,12 @@ public class Platform {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName","Android");
         capabilities.setCapability("deviceName","emulator-5554");
-        capabilities.setCapability("platformVersion","8.0");
+        capabilities.setCapability("platformVersion","6.0");
         capabilities.setCapability("automationName","Appium");
         capabilities.setCapability("appPackage","org.wikipedia");
         capabilities.setCapability("appActivity",".main.MainActivity");
-        capabilities.setCapability("app","/Users/Nastia/Documents/GitHub/JavaAppiumAutomation/apks/org.wikipedia.apk");
+        capabilities.setCapability("app","/var/hosting/JavaAppiumAutomation/apks/org.wikipedia.apk");
+        //capabilities.setCapability("app","/Users/Nastia/Documents/GitHub/JavaAppiumAutomation/apks/org.wikipedia.apk");
         return capabilities;
     }
 
@@ -77,6 +78,6 @@ public class Platform {
 
     private String getPlatformVar()
     {
-        return System.getenv("Platform");
+        return System.getenv("PLATFORM");
     }
 }

@@ -185,12 +185,12 @@ abstract public class SearchPageObject extends MainPageObject {
         );
     }
 
-    //Проверка, что результат поиска пустой
-    public void assertThereIsNoResultOfSearch()
+    public void waitElementNoResultsFound()
     {
-        this.assertElementNotPresent(
-                (SEARCH_EMPTY_RESULT_ELEMENT),
-                "Ожидалось, что результат поиска будет пустым"
+        this.waitForElementPresent(
+                SEARCH_EMPTY_RESULT_ELEMENT,
+                "Ожидалось, что на странице присутствует заглушка 'No results found'",
+                5
         );
     }
 }

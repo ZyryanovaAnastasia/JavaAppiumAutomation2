@@ -2,6 +2,7 @@ package homework;
 
 import lib.CoreTestCase;
 import lib.ui.SearchPageObject;
+import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
 public class EX4 extends CoreTestCase {
@@ -10,7 +11,7 @@ public class EX4 extends CoreTestCase {
     public void testCheckWordsInSearch()
     {
         String search_line = "Java";
-        SearchPageObject SearchPage = new SearchPageObject(driver);
+        SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
 
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);

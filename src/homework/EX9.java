@@ -2,6 +2,7 @@ package homework;
 
 import lib.CoreTestCase;
 import lib.ui.SearchPageObject;
+import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
 public class EX9 extends CoreTestCase {
@@ -16,7 +17,7 @@ public class EX9 extends CoreTestCase {
         String searchDescriptionTwo = "Programming language";
         String searchTitleThree ="Java (programming language)";
         String searchDescriptionThree = "Object-oriented programming language";
-        SearchPageObject SearchPage = new SearchPageObject(driver);
+        SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
 
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);

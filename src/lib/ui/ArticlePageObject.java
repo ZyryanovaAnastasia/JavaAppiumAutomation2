@@ -13,6 +13,7 @@ abstract public class ArticlePageObject extends MainPageObject {
         TITLE,
         TITLE_ARTICLE_TPL,
         OPTIONS_BTN,
+        OPTION_LISTS,
         OPTIONS_ADD_TO_MY_LIST_BTN,
         ADD_TO_MY_LIST_OVERLAY,
         MY_NEW_LIST_NAME_INPUT,
@@ -104,7 +105,7 @@ abstract public class ArticlePageObject extends MainPageObject {
         );
 
         this.waitForElementPresent(
-                ("android.widget.ListView"),
+                (OPTION_LISTS),
                 "Не удалось найти элемент списка опций",
                 5
 
@@ -163,7 +164,7 @@ abstract public class ArticlePageObject extends MainPageObject {
         );
 
         this.waitForElementPresent(
-                ("android.widget.ListView"),
+                (OPTION_LISTS),
                 "Не удалось найти элемент списка опций",
                 5
 

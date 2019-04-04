@@ -2,6 +2,7 @@ package homework;
 
 import lib.CoreTestCase;
 import lib.ui.SearchPageObject;
+import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
 public class EX2 extends CoreTestCase {
@@ -10,7 +11,7 @@ public class EX2 extends CoreTestCase {
     public void  testSearchTextInInput()
     {
         String expected_text_in_search_input = "Search…";
-        SearchPageObject SearchPage = new SearchPageObject(driver);
+        SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
 
         SearchPage.intSearchInput();
         String text_in_search_input =  SearchPage.getTextInSearchInput();

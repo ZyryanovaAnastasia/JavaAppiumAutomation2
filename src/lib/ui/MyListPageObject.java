@@ -32,7 +32,7 @@ abstract public class MyListPageObject extends MainPageObject {
         String folder_name_xpath = getFolderXpathByName(name_of_folder);
         waitForElementAndClick(
                 (folder_name_xpath),
-                "Не удалось перейти в список c названием" + name_of_folder,
+                "Не удалось перейти в список c названием " + name_of_folder,
                 5
         );
     };

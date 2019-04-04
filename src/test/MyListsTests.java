@@ -32,7 +32,7 @@ public class MyListsTests extends CoreTestCase {
 
         ArticlePage.waitForTitleElement();
         String article_title = ArticlePage.getArticleTitle();
-
+        
         if (Platform.getInstance().isAndroid()) {
             ArticlePage.addArticleToNewList(name_of_folder);
         } else {

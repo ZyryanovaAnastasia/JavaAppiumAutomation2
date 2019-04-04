@@ -4,6 +4,9 @@ import lib.CoreTestCase;
 import lib.ui.ArticlePageObject;
 import lib.ui.MyListPageObject;
 import lib.ui.NavigationUi;
+import lib.ui.factories.ArticlePageObjectFactory;
+import lib.ui.factories.MyListPageObjectFactory;
+import lib.ui.factories.NavigationUiFactory;
 import org.junit.Test;
 
 public class EX5 extends CoreTestCase {
@@ -16,9 +19,9 @@ public class EX5 extends CoreTestCase {
         String article_name_two = "Java";
         String name_of_folder = "Learning programming";
 
-        ArticlePageObject ArticlePage = new ArticlePageObject(driver);
-        NavigationUi NavigationUi = new NavigationUi(driver);
-        MyListPageObject MyListPage = new MyListPageObject(driver);
+        ArticlePageObject ArticlePage = ArticlePageObjectFactory.get(driver);
+        NavigationUi NavigationUi = NavigationUiFactory.get(driver);
+        MyListPageObject MyListPage = MyListPageObjectFactory.get(driver);
 
         ArticlePage.searchAndOpenArticle(search_line, article_name_one);
         ArticlePage.addArticleToNewList(name_of_folder);
