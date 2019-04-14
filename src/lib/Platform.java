@@ -30,7 +30,7 @@ public class Platform {
         if (this.isAndroid()) {
             return new AndroidDriver(URL, this.getAndroidDesiredCapabilities());
         } else if (this.isIOS()) {
-            return new IOSDriver(URL, this.getIOSDesiredCapabilitises());
+            return new IOSDriver(URL, this.getIOSDesiredCapabilities());
         } else {
             throw new Exception("Некоректное имя платформы. Значение " + this.getPlatformVar());
         }
@@ -60,13 +60,13 @@ public class Platform {
         return capabilities;
     }
 
-    private DesiredCapabilities getIOSDesiredCapabilitises()
+    private DesiredCapabilities getIOSDesiredCapabilities()
     {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName","IOS");
-        capabilities.setCapability("deviceName","iPhone 5E");
-        capabilities.setCapability("platformVersion","11.3");
-        capabilities.setCapability("app","/Users/Nastia/Desktop/JavaAppiumAutomation/apks/Wikipedia.app");
+        capabilities.setCapability("platformName","iOS");
+        capabilities.setCapability("deviceName","iPhone SE");
+        capabilities.setCapability("platformVersion","12.2");
+        capabilities.setCapability("app","/Users/mac-server-developers/Desktop/Wikipedia.app");
         return capabilities;
     }
 

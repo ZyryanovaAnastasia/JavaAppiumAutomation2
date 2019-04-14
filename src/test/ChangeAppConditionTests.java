@@ -54,7 +54,7 @@ public class ChangeAppConditionTests extends CoreTestCase {
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);
         SearchPage.waitForElementByTitle(expected_title);
-        this.backgroundApp(2);
+       // this.backgroundApp(2);
         SearchPage.waitForElementByTitle(expected_title);
     }
 }

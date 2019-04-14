@@ -38,10 +38,10 @@ public class CoreTestCase extends TestCase {
     }
 
     //Отправка приложение в фоновый режим
-    protected void backgroundApp(int seconds)
-    {
-        driver.runAppInBackground(seconds);
-    }
+//    protected void backgroundApp(int seconds)
+//    {
+//        driver.runAppInBackground(seconds);
+//    }
 
     private void skipWelcomePageForIOSApp()
     {

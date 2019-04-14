@@ -122,12 +122,12 @@ public class MainPageObject {
         int end_y = (int) (size.height * 0.2);
 
         //Нажать на экран, подождать, переместить палец в нажатом состоянии вверх. Чем больше timeOfSwipe, тем дольше swipe.
-        action
-                .press(x, start_y)
-                .waitAction(timeOfSwipe)
-                .moveTo(x, end_y)
-                .release()
-                .perform();
+//        action
+//                .press(x, start_y)
+//                .waitAction(timeOfSwipe)
+//                .moveTo(x, end_y)
+//                .release()
+//                .perform();
     }
 
     protected void swipeUpQuick()
@@ -198,7 +198,7 @@ public class MainPageObject {
         int point_to_click_y = middle_y;
 
         TouchAction action = new TouchAction(driver);
-        action.tap(point_to_click_x, point_to_click_y).perform();
+       // action.tap(point_to_click_x, point_to_click_y).perform();
     }
 
     //Swipe элемента влево
@@ -215,16 +215,16 @@ public class MainPageObject {
         int middle_y = (upper_y + lower_y) / 2; // середина элемента по оси Y
 
         TouchAction action = new TouchAction(driver);
-        action.press(right_x, middle_y);
+       // action.press(right_x, middle_y);
 
         if (Platform.getInstance().isAndroid()) {
-            action.waitAction(300);
+         //   action.waitAction(300);
         } else {
             int offset_x = (-1 * element.getSize().getWidth()); //Точка левее на всю шиирну элемента
-            action.moveTo(offset_x, 0);
+           // action.moveTo(offset_x, 0);
         }
 
-        action.moveTo(left_x, middle_y);
+       // action.moveTo(left_x, middle_y);
         action.release().perform();
 
     }

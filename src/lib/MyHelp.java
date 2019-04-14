@@ -134,12 +134,12 @@ public class MyHelp {
         int end_y = (int) (size.height * 0.2);
 
         //Нажать на экран, подождать, переместить палец в нажатом состоянии вверх. Чем больше timeOfSwipe, тем дольше swipe.
-        action
-                .press(x, start_y)
-                .waitAction(timeOfSwipe)
-                .moveTo(x, end_y)
-                .release()
-                .perform();
+//        action
+//                .press(x, start_y)
+//                .waitAction(timeOfSwipe)
+//                .moveTo(x, end_y)
+//                .release()
+//                .perform();
     }
 
     protected void swipeUpQuick()
@@ -176,11 +176,11 @@ public class MyHelp {
         int middle_y = (upper_y + lower_y) / 2; // середина элемента по оси Y
 
         TouchAction action = new TouchAction(driver);
-        action
-                .press(right_x, middle_y)
-                .waitAction(300)
-                .moveTo(left_x, middle_y)
-                .release().perform();
+//        action
+//                .press(right_x, middle_y)
+//                .waitAction(300)
+//                .moveTo(left_x, middle_y)
+//                .release().perform();
 
     }
 
