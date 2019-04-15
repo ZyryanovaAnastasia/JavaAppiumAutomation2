@@ -37,17 +37,17 @@ abstract public class NavigationUi extends MainPageObject{
                     "Не удалось кликнуть на кнопку My list",
                     5
             );
+        } else {
+            this.waitForElementAndClick(
+                    MY_LISTS_LINK,
+                    "Cannot find navigation button to My list",
+                    5
+            );
+            this.waitForElementPresent(
+                    TITLE_MY_LISTS,
+                    "Не удалось найти заголовок сцены My lists",
+                    5
+            );
         }
-
-        this.waitForElementAndClick(
-                (MY_LISTS_LINK),
-                "Ошибка при переходе в My lists с главного экрана",
-                5
-        );
-        this.waitForElementPresent(
-                TITLE_MY_LISTS,
-                "Не удалось найти заголовок сцены My lists",
-                5
-        );
     }
 }
