@@ -123,66 +123,65 @@ public class MyHelp {
     }
 
 //swipe статьи
-    protected void swipeUp(int timeOfSwipe)
-    {
-        TouchAction action = new TouchAction(driver);
-        Dimension size = driver.manage().window().getSize(); //Размер экрана
-
-        //Координаты в отношении размера устроства. Ось x неизменяется, т.к. движение снизу вверх
-        int x = size.width / 2;
-        int start_y = (int) (size.height * 0.8);//перевод числа в int
-        int end_y = (int) (size.height * 0.2);
-
-        //Нажать на экран, подождать, переместить палец в нажатом состоянии вверх. Чем больше timeOfSwipe, тем дольше swipe.
+//    protected void swipeUp(int timeOfSwipe)
+//    {
+//        TouchAction action = new TouchAction(driver);
+//        Dimension size = driver.manage().window().getSize(); //Размер экрана
+//
+//        //Координаты в отношении размера устроства. Ось x неизменяется, т.к. движение снизу вверх
+//        int x = size.width / 2;
+//        int start_y = (int) (size.height * 0.8);//перевод числа в int
+//        int end_y = (int) (size.height * 0.2);
+//
+//        //Нажать на экран, подождать, переместить палец в нажатом состоянии вверх. Чем больше timeOfSwipe, тем дольше swipe.
 //        action
 //                .press(x, start_y)
 //                .waitAction(timeOfSwipe)
 //                .moveTo(x, end_y)
 //                .release()
 //                .perform();
-    }
+//    }
 
-    protected void swipeUpQuick()
-    {
-       swipeUp(200);
-    }
+//    protected void swipeUpQuick()
+//    {
+//       swipeUp(200);
+//    }
 
 //Swipe статьи до определенного элемента
-    public void swipeUpToFindElement(By by, String error_message, int max_swipes)
-    {
-        int already_swiped = 0;
-        while (driver.findElements(by).size() == 0){
-            if (already_swiped > max_swipes){
-                waitForElementPresent(by, "Cannot find element by swiping up. \n" + error_message, 0);
-                return;
-            }
-
-            swipeUpQuick();
-            ++already_swiped;
-        }
-    }
+//    public void swipeUpToFindElement(By by, String error_message, int max_swipes)
+//    {
+//        int already_swiped = 0;
+//        while (driver.findElements(by).size() == 0){
+//            if (already_swiped > max_swipes){
+//                waitForElementPresent(by, "Cannot find element by swiping up. \n" + error_message, 0);
+//                return;
+//            }
+//
+//            swipeUpQuick();
+//            ++already_swiped;
+//        }
+//    }
 
 //Swipe элемента влево
-    public void swipeElementToLeft(By by, String error_message)
-    {
-        WebElement element = waitForElementPresent(
-                by,
-                error_message,
-                10);
-        int left_x = element.getLocation().getX(); // самая левая точка элемента по оси Х
-        int right_x = left_x + element.getSize().getWidth(); // самая права точка элемента по оси Х
-        int upper_y = element.getLocation().getY(); // самая верхная точка по оси Y
-        int lower_y = upper_y + element.getSize().getHeight(); // самая нижняя точка по оси Y
-        int middle_y = (upper_y + lower_y) / 2; // середина элемента по оси Y
-
-        TouchAction action = new TouchAction(driver);
+//    public void swipeElementToLeft(By by, String error_message)
+//    {
+//        WebElement element = waitForElementPresent(
+//                by,
+//                error_message,
+//                10);
+//        int left_x = element.getLocation().getX(); // самая левая точка элемента по оси Х
+//        int right_x = left_x + element.getSize().getWidth(); // самая права точка элемента по оси Х
+//        int upper_y = element.getLocation().getY(); // самая верхная точка по оси Y
+//        int lower_y = upper_y + element.getSize().getHeight(); // самая нижняя точка по оси Y
+//        int middle_y = (upper_y + lower_y) / 2; // середина элемента по оси Y
+//
+//        TouchAction action = new TouchAction(driver);
 //        action
 //                .press(right_x, middle_y)
 //                .waitAction(300)
 //                .moveTo(left_x, middle_y)
 //                .release().perform();
-
-    }
+//    }
 
 //Получение количества элементов
     public int getAmountOfElements(By by)

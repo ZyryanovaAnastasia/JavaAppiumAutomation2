@@ -2,9 +2,9 @@ package lib.ui.ios;
 
 import io.appium.java_client.AppiumDriver;
 import lib.ui.ArticlePageObject;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class iOSArticlePageObject  extends ArticlePageObject {
-
     static {
         TITLE = "id:Java (programming language)";
         OPTIONS_ADD_TO_MY_LIST_BTN = "id:Save for later";
@@ -15,7 +15,7 @@ public class iOSArticlePageObject  extends ArticlePageObject {
         SPECIAL_LIST_NAME_TPL = "xpath://android.widget.TextView[@text='{SPECIAL_NAME_LIST}']";
     }
 
-    public iOSArticlePageObject(AppiumDriver driver)
+    public iOSArticlePageObject(RemoteWebDriver driver)
     {
         super(driver);
     }

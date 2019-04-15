@@ -2,6 +2,7 @@ package lib.ui.android;
 
 import io.appium.java_client.AppiumDriver;
 import lib.ui.SearchPageObject;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class AndroidSearchPageObject extends SearchPageObject {
 
@@ -13,13 +14,13 @@ public class AndroidSearchPageObject extends SearchPageObject {
                          "/*[@resource-id='org.wikipedia:id/page_list_item_container']";
          SEARCH_EMPTY_RESULT_ELEMENT = "xpath://*[@text='No results found']";
          SEARCH_RESULT_BY_TITLE_TPL = "xpath://*[@resource-id='org.wikipedia:id/page_list_item_title']" +
-                         "[@text='{TITLE}']";
+                         "[contains(text(), '{TITLE}')]";
          SEARCH_RESULT_BY_TITLE_AND_DESCRIPTION_TPL = "xpath://*[@text='{TITLE}']/ancestor::" +
                          "android.widget.LinearLayout/android.widget.TextView[@text='{DESCRIPTION}']";
          SEARCH_RESULT_ALL_TITLE_ELM = "xpath://*[@resource-id='org.wikipedia:id/page_list_item_title']";
      }
 
-    public AndroidSearchPageObject(AppiumDriver driver)
+    public AndroidSearchPageObject(RemoteWebDriver driver)
     {
         super(driver);
     }

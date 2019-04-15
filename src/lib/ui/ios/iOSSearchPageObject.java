@@ -2,6 +2,7 @@ package lib.ui.ios;
 
 import io.appium.java_client.AppiumDriver;
 import lib.ui.SearchPageObject;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import test.SearchTests;
 
 public class iOSSearchPageObject extends SearchPageObject {
@@ -20,7 +21,7 @@ public class iOSSearchPageObject extends SearchPageObject {
                 "/*[@resource-id='org.wikipedia:id/page_list_item_container']";
     }
 
-    public iOSSearchPageObject(AppiumDriver driver)
+    public iOSSearchPageObject(RemoteWebDriver driver)
     {
         super(driver);
     }

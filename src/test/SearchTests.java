@@ -12,7 +12,7 @@ public class SearchTests extends CoreTestCase {
     public void testSearch()
     {
         String search_line = "Appium";
-        String expected_title = "Appium";
+        String expected_title = "ppium";
 
         SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
         SearchPage.intSearchInput();

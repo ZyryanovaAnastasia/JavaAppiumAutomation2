@@ -2,10 +2,7 @@ package test;
 
 import lib.CoreTestCase;
 import lib.Platform;
-import lib.ui.ArticlePageObject;
-import lib.ui.MyListPageObject;
-import lib.ui.NavigationUi;
-import lib.ui.SearchPageObject;
+import lib.ui.*;
 import lib.ui.factories.ArticlePageObjectFactory;
 import lib.ui.factories.MyListPageObjectFactory;
 import lib.ui.factories.NavigationUiFactory;
@@ -13,13 +10,16 @@ import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
 public class MyListsTests extends CoreTestCase {
+    private static final String
+    login = "anastasia",
+    password = "test123456";
 
     //Добавление статьи в список и удаление из него
     @Test
     public void testSaveArticleToMyListAndDelete()
     {
         String search_line = "Java";
-        String article_name = "Java (programming language)";
+        String article_name = "ava (programming language)";
         String name_of_folder = "Learning programming";
         SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
         ArticlePageObject ArticlePage = ArticlePageObjectFactory.get(driver);
@@ -39,8 +39,24 @@ public class MyListsTests extends CoreTestCase {
             ArticlePage.addArticlesToMySaved();
         }
 
+        if (Platform.getInstance().isMW()) {
+            AuthorizationPageObject Auth = new AuthorizationPageObject(driver);
+            Auth.clickAuthBtn();
+            Auth.enterLoginData(login, password);
+            Auth.submitForm();
+
+            ArticlePage.waitForTitleElement();
+
+            assertEquals(
+                    "Не удалось перейти на статью после логина",
+                    article_title,
+                    ArticlePage.getArticleTitle()
+            );
+        }
+
         ArticlePage.closeArticle();
 
+        NavigationUi.openNavigation();
         NavigationUi.clickMyLists();
 
         if (Platform.getInstance().isAndroid()) {

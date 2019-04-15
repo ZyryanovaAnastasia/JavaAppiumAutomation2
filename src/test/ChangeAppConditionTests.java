@@ -1,6 +1,7 @@
 package test;
 
 import lib.CoreTestCase;
+import lib.Platform;
 import lib.ui.ArticlePageObject;
 import lib.ui.SearchPageObject;
 import lib.ui.factories.ArticlePageObjectFactory;
@@ -13,6 +14,10 @@ public class ChangeAppConditionTests extends CoreTestCase {
     @Test
     public void testChangeScreenOrientationOnSearchResults()
     {
+        if (Platform.getInstance().isMW()) {
+            return;
+        }
+
         String search_line = "Java";
         String expected_title = "Java (programming language)";
         SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
@@ -23,7 +28,7 @@ public class ChangeAppConditionTests extends CoreTestCase {
         SearchPage.clickByArticleWithSubstring(expected_title);
 
         String title_before_rotation = ArticlePage.getArticleTitle();
-        this.rotateScreenLandscape();
+        //this.rotateScreenLandscape();
         String title_after_rotation = ArticlePage.getArticleTitle();
 
         assertEquals(
@@ -47,6 +52,10 @@ public class ChangeAppConditionTests extends CoreTestCase {
     @Test
     public void testCheckSearchArticleInBackground()
     {
+        if (Platform.getInstance().isMW()) {
+            return;
+        }
+
         String search_line = "Java";
         String expected_title = "Java (programming language)";
         SearchPageObject SearchPage = SearchPageObjectFactory.get(driver);
@@ -54,7 +63,7 @@ public class ChangeAppConditionTests extends CoreTestCase {
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);
         SearchPage.waitForElementByTitle(expected_title);
-       // this.backgroundApp(2);
+      //  this.backgroundApp(2);
         SearchPage.waitForElementByTitle(expected_title);
     }
 }
