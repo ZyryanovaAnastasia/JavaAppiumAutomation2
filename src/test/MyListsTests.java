@@ -11,7 +11,7 @@ import org.junit.Test;
 
 public class MyListsTests extends CoreTestCase {
     private static final String
-    login = "anastasia",
+    login = "nastia2019",
     password = "test123456";
 
     //Добавление статьи в список и удаление из него
@@ -52,6 +52,7 @@ public class MyListsTests extends CoreTestCase {
                     article_title,
                     ArticlePage.getArticleTitle()
             );
+            ArticlePage.addArticlesToMySaved();
         }
 
         ArticlePage.closeArticle();
@@ -63,6 +64,6 @@ public class MyListsTests extends CoreTestCase {
             MyListPage.openFolderByName(name_of_folder);
         }
 
-        MyListPage.swipeByArticleToDelete(article_title);
+       // MyListPage.swipeByArticleToDelete(article_title);
     }
 }

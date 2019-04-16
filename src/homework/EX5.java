@@ -2,10 +2,7 @@ package homework;
 
 import lib.CoreTestCase;
 import lib.Platform;
-import lib.ui.ArticlePageObject;
-import lib.ui.MyListPageObject;
-import lib.ui.NavigationUi;
-import lib.ui.SearchPageObject;
+import lib.ui.*;
 import lib.ui.factories.ArticlePageObjectFactory;
 import lib.ui.factories.MyListPageObjectFactory;
 import lib.ui.factories.NavigationUiFactory;
@@ -13,6 +10,9 @@ import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
 public class EX5 extends CoreTestCase {
+    private static final String
+            login = "nastia2019",
+            password = "test123456";
 
     @Test
     public void testSaveAndDeleteTwoArticle()
@@ -26,6 +26,7 @@ public class EX5 extends CoreTestCase {
         ArticlePageObject ArticlePage = ArticlePageObjectFactory.get(driver);
         NavigationUi NavigationUi = NavigationUiFactory.get(driver);
         MyListPageObject MyListPage = MyListPageObjectFactory.get(driver);
+        AuthorizationPageObject Auth = new AuthorizationPageObject(driver);
 
         SearchPage.intSearchInput();
         SearchPage.typeSearchLine(search_line);
@@ -36,6 +37,18 @@ public class EX5 extends CoreTestCase {
 
         if (Platform.getInstance().isAndroid()) {
             ArticlePage.addArticleToNewList(name_of_folder);
+        } else if (Platform.getInstance().isMW()) {
+            Auth.clickAuthBtn();
+            Auth.enterLoginData(login, password);
+            Auth.submitForm();
+
+            assertEquals(
+                    "Не удалось перейти на статью после логина",
+                    article_title,
+                    ArticlePage.getArticleTitle()
+            );
+
+            ArticlePage.addArticlesToMySaved();
         } else {
             ArticlePage.addArticlesToMySaved();
         }
@@ -43,6 +56,11 @@ public class EX5 extends CoreTestCase {
         ArticlePage.closeArticle();
 
         SearchPage.intSearchInput();
+
+        if (Platform.getInstance().isAndroid() || Platform.getInstance().isMW()) {
+            SearchPage.typeSearchLine(search_line);
+        }
+
         SearchPage.clickByArticleWithSubstring(article_name_two);
 
         ArticlePage.waitForTitleElement();
