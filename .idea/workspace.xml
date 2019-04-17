@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="acde657c-17c9-4767-80bc-dc9c48012edb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/suites/TestSuite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaAppiumAutomation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaAppiumAutomation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaAppiumAutomation/META-INF/JavaAppiumAutomation.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/CoreTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/CoreTestCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/MyHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/MyHelp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Platform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/ui/MainPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/ui/MainPageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/ChangeAppConditionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ChangeAppConditionTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,10 +20,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/SearchTests.java">
+        <entry file="file://$PROJECT_DIR$/src/homework/EX5.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="39" column="74" lean-forward="true" selection-start-line="39" selection-start-column="74" selection-end-line="39" selection-end-column="74" />
+            <state relative-caret-position="396">
+              <caret line="59" column="39" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -38,12 +32,42 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/lib/Platform.java">
+        <entry file="file://$PROJECT_DIR$/src/suites/TestSuite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="68" column="52" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
+            <state relative-caret-position="225">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/MyListsTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="516">
+              <caret line="53" column="14" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/ui/ArticlePageObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="492">
+              <caret line="78" selection-start-line="78" selection-end-line="78" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#waitForTitleElement#0;class#ArticlePageObject#0" />
+                <element signature="method#clickArticleName#0;class#ArticlePageObject#0" />
+                <element signature="method#getArticleTitle#0;class#ArticlePageObject#0" />
+                <element signature="method#searchAndOpenArticle#0;class#ArticlePageObject#0" />
+                <element signature="method#choiceListAddByName#0;class#ArticlePageObject#0" />
+                <element signature="method#swipeUpToFooter#0;class#ArticlePageObject#0" />
               </folding>
             </state>
           </provider>
@@ -148,6 +172,7 @@
         <option value="$PROJECT_DIR$/src/lib/MyHelp.java" />
         <option value="$PROJECT_DIR$/src/test/ChangeAppConditionTests.java" />
         <option value="$PROJECT_DIR$/src/lib/Platform.java" />
+        <option value="$PROJECT_DIR$/src/suites/TestSuite.java" />
       </list>
     </option>
   </component>
@@ -164,41 +189,29 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="JavaAppiumAutomation2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaAppiumAutomation2" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaAppiumAutomation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaAppiumAutomation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="JavaAppiumAutomation2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaAppiumAutomation2" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaAppiumAutomation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaAppiumAutomation" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaAppiumAutomation2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaAppiumAutomation2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaAppiumAutomation2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaAppiumAutomation2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554373996178" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555474330250" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../etagi-android/etagi/src/androidTest/java/com/etagi/client/DatesInstrumentedTest.kt" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -316,10 +329,10 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="945" extended-state="0" />
+    <frame x="0" y="28" width="1921" height="1029" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16478191" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21462893" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -328,7 +341,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.32590857" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.32590857" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -528,8 +541,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/MyListsTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+        <state relative-caret-position="516">
+          <caret line="53" column="14" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -621,8 +634,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/homework/EX5.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="30" column="39" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="43" />
+        <state relative-caret-position="396">
+          <caret line="59" column="39" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -655,18 +668,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/ui/ArticlePageObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
+        <state relative-caret-position="492">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#waitForTitleElement#0;class#ArticlePageObject#0" />
             <element signature="method#clickArticleName#0;class#ArticlePageObject#0" />
-            <element signature="method#addArticlesToMySaved#0;class#ArticlePageObject#0" />
             <element signature="method#getArticleTitle#0;class#ArticlePageObject#0" />
             <element signature="method#searchAndOpenArticle#0;class#ArticlePageObject#0" />
             <element signature="method#choiceListAddByName#0;class#ArticlePageObject#0" />
             <element signature="method#swipeUpToFooter#0;class#ArticlePageObject#0" />
-            <element signature="method#closeArticle#0;class#ArticlePageObject#0" />
           </folding>
         </state>
       </provider>
@@ -745,6 +756,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="68" column="52" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/suites/TestSuite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
